@@ -900,13 +900,13 @@ $ ironapp APP_NAME/DEP_NAME deploy --stack [pinky]
 [Custom Config Add-on]: /Add-on-Documentation/Config.md
 [web console]: https://beta.kilatiron.net
 [API libraries]: https://github.com/CloudKilat
-[the latest version]: https://download.cloudcontrole.net/windows
+[the latest version]: https://download.cloudcontrolled.com/windows
 [Python 2.6+]: http://python.org/download/
 [reset your password]: https://api.cloudcontrol.com/reset_password/
 [quick Git tutorial]: http://rogerdudler.github.com/git-guide/
 [Bazaar in five minutes]: http://doc.bazaar.canonical.com/latest/en/mini-tutorial/
 [Heroku buildpack API]: https://devcenter.heroku.com/articles/buildpack-api
-[guides]: https://www.cloudcontrol.com/dev-center/guides
+[guides]: /Guides/
 [MongoLab Add-on]: https://www.cloudcontrol.com/add-ons/mongolab
 [Add-on marketplace]: https://www.cloudcontrol.com/add-ons
 [Deployment category]: https://www.cloudcontrol.com/dev-center/add-on-documentation#deployment
