@@ -898,7 +898,7 @@ $ ironapp APP_NAME/DEP_NAME deploy --stack [pinky]
 
 [generating SSH keys]: https://help.github.com/articles/generating-ssh-keys
 [Custom Config Add-on]: /Add-on-Documentation/Config.md
-[web console]: https://www.cloudkilat.com
+[web console]: https://beta.kilatiron.net
 [API libraries]: https://github.com/CloudKilat
 [the latest version]: https://download.cloudcontrole.net/windows
 [Python 2.6+]: http://python.org/download/
