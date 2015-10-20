@@ -1,6 +1,6 @@
 # Deploying a Ruby on Rails Application
 
-In this tutorial we're going to show you how to deploy a [Ruby on Rails] application on [CloudKilat]. You can find the [source code on Github][example-app] and check out the [Ruby buildpack][ruby buildpack] for supported features. The application is a fork of Michael Hartl's [Rails tutorial] sample app which is a Twitter clone.
+In this tutorial we're going to show you how to deploy a [Ruby on Rails] application on CloudKilat. You can find the [source code on Github][example-app] and check out the [Ruby buildpack][ruby buildpack] for supported features. The application is a fork of Michael Hartl's [Rails tutorial] sample app which is a Twitter clone.
 
 ## The Rails Application Explained
 
@@ -185,7 +185,7 @@ For additional information take a look at [Ruby on Rails notes][rails-notes] and
 other [ruby-specific documents][ruby-guides].
 
 [Ruby on Rails]: http://rubyonrails.org/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [example-app]: https://github.com/cloudControl/ruby-rails-example-app
 [ruby buildpack]: https://github.com/cloudControl/buildpack-ruby
 [Rails tutorial]: http://ruby.railstutorial.org/

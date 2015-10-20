@@ -1,6 +1,6 @@
 # Deploying an Express Application
 
-This example demonstrates how to build a simple Express app on [CloudKilat]. The
+This example demonstrates how to build a simple Express app on CloudKilat. The
 app uses [Express], which is a [Node.js] web framework, and MongoDB as the
 backend database.
 
@@ -155,7 +155,7 @@ applications.
 [Node.js]: http://nodejs.org/
 [Express]: http://expressjs.com/
 [npm]: https://npmjs.org/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [Node.js buildpack]: https://github.com/cloudControl/buildpack-nodejs
 [get-conf]: https://www.cloudcontrol.com/dev-center/guides/nodejs/add-on-credentials-1
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile

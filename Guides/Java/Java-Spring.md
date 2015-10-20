@@ -1,6 +1,6 @@
 #Deploying a Spring Application
 
-In this tutorial we're going to show you how to deploy a Spring/MVC/Hibernate application on [CloudKilat]. The example app is a ready to deploy project based on the [Spring Roo petclinic] example.
+In this tutorial we're going to show you how to deploy a Spring/MVC/Hibernate application on CloudKilat. The example app is a ready to deploy project based on the [Spring Roo petclinic] example.
 
 ## The Spring Application Explained
 
@@ -149,7 +149,7 @@ Et voila, the app is now up and running at `http[s]://APP_NAME.kilatiron.net` .
 [Spring Roo petclinic]: http://static.springsource.org/spring-roo/reference/html/intro.html#intro-exploring-sample
 [Database credentials]: https://www.cloudcontrol.com/dev-center/guides/java/add-on-credentials-3
 [Jetty Runner]: http://wiki.eclipse.org/Jetty/Howto/Using_Jetty_Runner
-[CloudKilat]: /
+CloudKilat: /
 [file system]: https://www.cloudcontrol.com/dev-center/platform-documentation#non-persistent-filesystem
 [log command]: https://www.cloudcontrol.com/dev-center/platform-documentation#logging
 [Shared MySQL Add-on]: https://www.cloudcontrol.com/dev-center/add-on-documentation/mysqls

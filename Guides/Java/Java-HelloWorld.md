@@ -2,7 +2,7 @@
 
 If you're looking for a fast and lightweight Java web server / Servlet container for your projects, you definitely have to try [Jetty].
 
-In this tutorial we're going to show you how to deploy a Jetty application on [CloudKilat]. You can find the [source code on Github](https://github.com/cloudControl/java-jetty-example-app) and check out the [Java buildpack] for supported features.
+In this tutorial we're going to show you how to deploy a Jetty application on CloudKilat. You can find the [source code on Github](https://github.com/cloudControl/java-jetty-example-app) and check out the [Java buildpack] for supported features.
 
 
 ## The Jetty Application Explained
@@ -107,7 +107,7 @@ $ ironapp APP_NAME/default deploy
 Congratulations, you can now see your Jetty Application running at `http[s]://APP_NAME.kilatiron.net`.
 
 [Jetty]: http://jetty.codehaus.org/jetty/
-[CloudKilat]: https://www.cloudcontrol.com/
+CloudKilat: https://www.cloudcontrol.com/
 [Java buildpack]: https://github.com/cloudControl/buildpack-java
 [CloudKilat-command-line-client]: https://www.cloudcontrol.com//dev-center/platform-documentation#platform-access
 [Git client]: http://git-scm.com/

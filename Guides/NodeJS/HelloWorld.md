@@ -5,7 +5,7 @@ makes it a lightweight and efficient framework for building data-intensive
 real-time cloud apps.
 
 This tutorial demonstrates how to build and deploy a simple Hello World Node.js
-application on [CloudKilat]. Check out the [Node.js buildpack] for supported
+application on CloudKilat. Check out the [Node.js buildpack] for supported
 features.
 
 ## The Node.js App Explained
@@ -136,7 +136,7 @@ Good luck building your apps using Node.js and CloudKilat.
 [example on how to use Node.js with MongoDB]: https://www.cloudcontrol.com/dev-center/guides/nodejs/express
 [Node.js]: http://nodejs.org/
 [npm]: https://npmjs.org/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [Node.js buildpack]: https://github.com/cloudControl/buildpack-nodejs
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile
 [platform documentation]: https://www.cloudcontrol.com/dev-center/platform-documentation

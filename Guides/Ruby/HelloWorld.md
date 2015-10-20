@@ -2,7 +2,7 @@
 [Sinatra][sinatra] is a DSL for quickly creating web applications in Ruby with minimal effort.
 
 In this tutorial we're going to show you how to deploy a Sinatra application on
-[CloudKilat]. You can find the [source code on Github][example-app] and check out the [Ruby buildpack] for supported features.
+CloudKilat. You can find the [source code on Github][example-app] and check out the [Ruby buildpack] for supported features.
 
 
 ## The Sinatra App Explained
@@ -86,7 +86,7 @@ Congratulations, you can now see your Sinatra App running at `http[s]://APP_NAME
 
 
 [sinatra]: http://www.sinatrarb.com/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [CloudKilat-doc-user]: https://www.cloudcontrol.com/dev-center/platform-documentation#user-accounts
 [CloudKilat-doc-cmdline]: https://www.cloudcontrol.com/dev-center/platform-documentation#platform-access
 [ruby buildpack]: https://github.com/cloudControl/buildpack-ruby

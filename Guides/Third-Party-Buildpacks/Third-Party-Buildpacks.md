@@ -1,6 +1,6 @@
 # Third-Party Custom Buildpacks
 
-[CloudKilat] officially supports the following application types via the [Pinky Stack][PinkyStack].
+CloudKilat officially supports the following application types via the [Pinky Stack][PinkyStack].
 
 - Java-based (Java with Maven, Gradle, Grails, Scala, Play! or Clojure)
 - Ruby
@@ -37,7 +37,7 @@ You can use any of the aforementioned buildpacks, fork them and make changes acc
 
 Before using any third party buildpack you should inspect their source code and proceed with caution.
 
-[CloudKilat]: https://www.cloudcontrol.com
+CloudKilat: https://www.cloudcontrol.com
 [PinkyStack]: https://www.cloudcontrol.com/dev-center/platform-documentation#stacks
 [buildpack-java]: https://github.com/cloudControl/buildpack-java
 [buildpack-python]: https://github.com/cloudControl/buildpack-python

@@ -1,7 +1,7 @@
 # Deploying a Django Application
 
 In this tutorial we're going to show you how to deploy a Django application on
-[CloudKilat]. You can find the [source code on Github][example-app] and check
+CloudKilat. You can find the [source code on Github][example-app] and check
 out the [Python buildpack][python buildpack] for supported features. The
 application follows the official [Django tutorial] and allows you to create,
 use and manage simple polls.
@@ -161,7 +161,7 @@ For additional information take a look at [Django Notes][django-notes] and
 other [python-specific documents][python-guides].
 
 [django]: https://www.djangoproject.com/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [CloudKilat-doc-user]: https://www.cloudcontrol.com/dev-center/platform-documentation#user-accounts
 [CloudKilat-doc-cmdline]: https://www.cloudcontrol.com/dev-center/platform-documentation#platform-access
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile

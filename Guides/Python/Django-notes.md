@@ -1,5 +1,5 @@
 # Notes for Django Developers
-This document contains information for Django programmers deploying their applications on [CloudKilat].
+This document contains information for Django programmers deploying their applications on CloudKilat.
 
 ## Managing Dependencies
 The [python buildpack] uses [pip] to manage dependencies. Specify your dependencies in a file called `requirements.txt` in the project root directory.
@@ -32,5 +32,5 @@ You can't use a local SMTP server, instead choose one of our [email Add-ons][mes
 [messaging-addons]: https://www.cloudcontrol.com/dev-center/add-on-documentation#messaging-mobile
 [data-storage-addons]: https://www.cloudcontrol.com/dev-center/add-on-documentation#data-storage
 [add-on-credentials]: https://www.cloudcontrol.com/dev-center/guides/python/add-on-credentials
-[CloudKilat]: https://www.cloudcontrol.com/
+CloudKilat: https://www.cloudcontrol.com/
 [worker]: https://www.cloudcontrol.com/dev-center/platform-documentation#scheduled-jobs-and-background-workers

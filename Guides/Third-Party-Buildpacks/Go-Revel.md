@@ -3,7 +3,7 @@
 [Revel] is an open source web framework for Go.
 
 In this tutorial we're going to show you how to deploy a simple Revel based
-application on [CloudKilat].
+application on CloudKilat.
 
 ## The Example App Explained
 
@@ -120,6 +120,6 @@ $ ironapp APP_NAME/default open
 ~~~
 
 [Revel]: http://revel.github.io
-[CloudKilat]: https://www.cloudcontrol.com
+CloudKilat: https://www.cloudcontrol.com
 [Revel buildpack]: https://github.com/revel/heroku-buildpack-go-revel
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile

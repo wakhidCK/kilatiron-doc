@@ -1,7 +1,7 @@
 # Deploying a Play 2 application
 
 In this tutorial we're going to show you how to deploy a [Play 2.3.x] application on
-[CloudKilat]. You can find the [source code on Github](https://github.com/cloudControl/java-play2-example-app)
+CloudKilat. You can find the [source code on Github](https://github.com/cloudControl/java-play2-example-app)
 and check out the [Scala buildpack] for supported features. The application
 comes from the official Play framework templates that can be found at
 https://github.com/playframework/playframework/tree/2.3.x/templates/play-java-intro,
@@ -107,7 +107,7 @@ redeploy all changes will be lost. If you want a production database you should
 use one of our available [Data Storage Add-ons].
 
 [Play 2.3.x]: https://www.playframework.com/documentation/2.3.x/Home
-[CloudKilat]: https://www.cloudcontrol.com/
+CloudKilat: https://www.cloudcontrol.com/
 [Scala buildpack]: https://github.com/cloudControl/buildpack-scala
 [CloudKilat-command-line-client]: https://www.cloudcontrol.com/dev-center/platform-documentation#platform-access
 [Git client]: http://git-scm.com/

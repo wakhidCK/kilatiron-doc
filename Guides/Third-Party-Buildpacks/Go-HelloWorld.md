@@ -1,7 +1,7 @@
 # Deploying a Go Application
 The [Go] language standard library comes with a full working web server that we used to build our *Hello world* example application 
 
-In this tutorial we're going to show you how to deploy this simple Go app on [CloudKilat].
+In this tutorial we're going to show you how to deploy this simple Go app on CloudKilat.
 
 ## The Go App Explained
 
@@ -123,6 +123,6 @@ $ ironapp APP_NAME/default deploy
 Congratulations, you can now see your Go app running at `http[s]://APP_NAME.kilatiron.net`.
 
 [Go]: http://golang.org/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [godep]: https://github.com/tools/godep
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile

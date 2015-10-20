@@ -4,7 +4,7 @@
 built on the shoulders of Symfony2 and Pimple.
 
 In this tutorial we're going to show you how to deploy a Silex application on
-[CloudKilat]. You can find the [source code on Github][example-app] and check
+CloudKilat. You can find the [source code on Github][example-app] and check
 out the [php buildpack] for supported features.
 
 
@@ -112,7 +112,7 @@ Congratulations, you can now see your Silex app running at `http[s]://APP_NAME.k
 
 
 [silex]: http://silex.sensiolabs.org/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [CloudKilat-doc-user]: https://www.cloudcontrol.com/dev-center/platform-documentation#user-accounts
 [CloudKilat-doc-cmdline]: https://www.cloudcontrol.com/dev-center/platform-documentation#platform-access
 [php buildpack]: https://github.com/cloudControl/buildpack-php

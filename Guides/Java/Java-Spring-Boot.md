@@ -2,7 +2,7 @@
 
 With [Spring Boot] you can create stand-alone, Spring based applications without most of the boilerplate configuration that was needed before.
 
-In this guide we are going to show you how to deploy a Spring/Hibernate/MySQL/Jetty application on [CloudKilat]. The example app is a ready to deploy project based on the Spring-Boot [examples].
+In this guide we are going to show you how to deploy a Spring/Hibernate/MySQL/Jetty application on CloudKilat. The example app is a ready to deploy project based on the Spring-Boot [examples].
 
 ## The Spring-Boot Application Explained
 
@@ -139,6 +139,6 @@ Et voila, the app is now up and running at `http[s]://APP_NAME.kilatiron.net` .
 [Spring Boot]: http://projects.spring.io/spring-boot/
 [examples]: https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples
 [Database credentials]: https://www.cloudcontrol.com/dev-center/guides/java/add-on-credentials-3
-[CloudKilat]: /
+CloudKilat: /
 [MySQLs Add-on]: https://www.cloudcontrol.com/dev-center/add-on-documentation/mysqls
 [hsqlDB]: http://hsqldb.org/

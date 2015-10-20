@@ -3,7 +3,7 @@
 intentions.
 
 In this tutorial we're going to show you how to deploy a Flask
-application on [CloudKilat]. You can find the [source code on Github][example_app] and check out the [Python buildpack] for
+application on CloudKilat. You can find the [source code on Github][example_app] and check out the [Python buildpack] for
 supported features.
 
 ## The Flask App Explained
@@ -102,7 +102,7 @@ $ ironapp APP_NAME/default deploy
 Congratulations, you can now see your Flask app running at `http[s]://APP_NAME.kilatiron.net`.
 
 [Flask]: http://flask.pocoo.org/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [Python buildpack]: https://github.com/cloudControl/buildpack-python
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile
 [example_app]: https://github.com/cloudControl/python-flask-example-app.git

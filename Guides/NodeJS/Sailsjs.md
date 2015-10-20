@@ -1,6 +1,6 @@
 # Deploying a Sails.js Application
 
-In this guide we're going to show you how to deploy a [Sails.js] application on [CloudKilat]. Sails.js is a real-time [Node.js] MVC framework, designed to mimic the pattern of frameworks like [Ruby on Rails]. It allows you to easily create applications with Node.js using the Model-View-Controller pattern to organize your code so that it is easier to maintain.
+In this guide we're going to show you how to deploy a [Sails.js] application on CloudKilat. Sails.js is a real-time [Node.js] MVC framework, designed to mimic the pattern of frameworks like [Ruby on Rails]. It allows you to easily create applications with Node.js using the Model-View-Controller pattern to organize your code so that it is easier to maintain.
 
 If you are new to Sails.js, first, check out the [Sails getting started page] for more info on how to install Sails.
 
@@ -148,7 +148,7 @@ Congratulations, you can now see your Sails.js application running at
 [Sails getting started page]: http://sailsjs.org/#!getStarted
 [Ruby on Rails]: http://rubyonrails.org/
 [npm]: https://npmjs.org/
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile
 [get the MySQL credentials]: https://www.cloudcontrol.com/dev-center/guides/nodejs/add-on-credentials-1
 [websockets]: http://socket.io/

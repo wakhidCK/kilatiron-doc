@@ -1,6 +1,6 @@
 # Deploying a Gradle application
 
-In this tutorial we're going to show you how to deploy a Gradle Application on [CloudKilat]. You can find the [source code on Github](https://github.com/cloudControl/gradle-example-app) and check out the [Gradle buildpack] for supported features.
+In this tutorial we're going to show you how to deploy a Gradle Application on CloudKilat. You can find the [source code on Github](https://github.com/cloudControl/gradle-example-app) and check out the [Gradle buildpack] for supported features.
 
 ## The Gradle Application Explained
 ### Get the App
@@ -91,7 +91,7 @@ $ ironapp APP_NAME/default deploy
 
 Congratulations, you can now see your Gradle application running at `http[s]://APP_NAME.kilatiron.net`.
 
-[CloudKilat]: https://www.cloudcontrol.com/
+CloudKilat: https://www.cloudcontrol.com/
 [Gradle buildpack]: https://github.com/cloudControl/buildpack-gradle
 [CloudKilat-command-line-client]: https://www.cloudcontrol.com/dev-center/platform-documentation#platform-access
 [Git client]: http://git-scm.com/

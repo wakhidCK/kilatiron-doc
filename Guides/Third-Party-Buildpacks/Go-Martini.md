@@ -3,7 +3,7 @@
 [Martini] is an open source web framework for Go.
 
 In this tutorial we're going to show you how to deploy a simple Martini based
-application on [CloudKilat].
+application on CloudKilat.
 
 ## The Example App Explained
 
@@ -67,7 +67,7 @@ Left from the colon we specify the **required** process type called `web` and th
 
 ### The Actual Application Code
 
-The actual application code is really straight forward. It simply uses the Martini framework to render the HTML output and return it to the client. The `m.Run()` automatically binds to the port specified in the `$PORT` environment variable as is required on [CloudKilat].
+The actual application code is really straight forward. It simply uses the Martini framework to render the HTML output and return it to the client. The `m.Run()` automatically binds to the port specified in the `$PORT` environment variable as is required on CloudKilat.
 
 ~~~go
 package main
@@ -136,6 +136,6 @@ $ ironapp APP_NAME/default open
 ~~~
 
 [Martini]: http://martini.codegangsta.io/
-[CloudKilat]: https://www.cloudcontrol.com
+CloudKilat: https://www.cloudcontrol.com
 [Go buildpack]: https://github.com/cloudControl/buildpack-go
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile

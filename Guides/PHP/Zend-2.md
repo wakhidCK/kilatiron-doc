@@ -1,6 +1,6 @@
 # Deploying a Zend2 Application
 
-In this tutorial we're going to show you how to deploy a Zend2 application on [CloudKilat].
+In this tutorial we're going to show you how to deploy a Zend2 application on CloudKilat.
 
 The [example app] is a ready to deploy fork of the official ZendSkeletonApplication available on [github](https://github.com/zendframework/ZendSkeletonApplication).
 
@@ -205,6 +205,6 @@ Connection to ssh.cloudcontrolled.net closed.
 Et voila, the app is now up and running at `http[s]://APP_NAME.kilatiron.net`.
 
 [PHP buildpack]: https://github.com/cloudControl/buildpack-php
-[CloudKilat]: https://www.cloudcontrol.com/
+CloudKilat: https://www.cloudcontrol.com/
 [example app]: https://github.com/cloudControl/php-zend2-example-app.git
 

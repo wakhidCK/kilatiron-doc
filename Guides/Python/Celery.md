@@ -1,7 +1,7 @@
 # Deploying Celery on CloudKilat
 [Celery] is an asynchronous task queue/job queue based on distributed message passing. It is focused on real-time operation, but supports scheduling as well.
 
-In this tutorial we're going to show you how to deploy an example Celery app using the [CloudAMQP Add-on] and a [Worker] on [CloudKilat].
+In this tutorial we're going to show you how to deploy an example Celery app using the [CloudAMQP Add-on] and a [Worker] on CloudKilat.
 
 ## The Example App Explained
 First, lets clone the example code from Github. It is based on the official [first steps with Celery guide][celeryguide] and also includes [Flower] the Celery web interface.
@@ -205,7 +205,7 @@ This guide showed how to run both Flower aswell as a Celery worker on CloudKilat
 [Celery]: http://celeryproject.org/
 [CloudAMQP Add-on]: https://www.cloudcontrol.com/add-ons/cloudamqp
 [Worker]: https://www.cloudcontrol.com/dev-center/platform-documentation#workers
-[CloudKilat]: http://www.cloudcontrol.com
+CloudKilat: http://www.cloudcontrol.com
 [celeryguide]: http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html
 [Flower]: http://docs.celeryproject.org/en/latest/userguide/monitoring.html#flower-real-time-celery-web-monitor
 [Python buildpack]: https://github.com/cloudControl/buildpack-python

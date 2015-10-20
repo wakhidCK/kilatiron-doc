@@ -5,7 +5,7 @@ you definitely have heard of [Tomcat]. Tomcat offers an implementation of the
 Java Servlet and JavaServer Pages (JSP) technologies.
 
 In this tutorial we're going to show you how to deploy a JSP application running on embedded Tomcat on
-[CloudKilat]. You can find the [source code on Github](https://github.com/cloudControl/java-tomcat-example-app)
+CloudKilat. You can find the [source code on Github](https://github.com/cloudControl/java-tomcat-example-app)
 and check out the [Java buildpack] for supported features.
 
 
@@ -165,7 +165,7 @@ $ ironapp APP_NAME/default deploy
 Congratulations, you can now see your JSP Application running on Tomcat at `http[s]://APP_NAME.kilatiron.net`.
 
 [Tomcat]: https://tomcat.apache.org/
-[CloudKilat]: https://www.cloudcontrol.com/
+CloudKilat: https://www.cloudcontrol.com/
 [Java buildpack]: https://github.com/cloudControl/buildpack-java
 [CloudKilat-command-line-client]: /dev-center/platform-documentation#platform-access
 [Git client]: http://git-scm.com/
