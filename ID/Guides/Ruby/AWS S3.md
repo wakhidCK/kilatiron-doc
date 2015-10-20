@@ -1,13 +1,13 @@
-# Ruby Amazon S3 integrasi
+# Integrasi dengan Amazon S3
 
-[Amazon S3] (http://aws.amazon.com/s3/) adalah Storage-as-a-Service solusi. Ini menyediakan antarmuka layanan web sederhana yang dapat digunakan untuk menyimpan dan mengambil data dari mana saja di web.
+[Amazon S3] (http://aws.amazon.com/s3/) adalah solusi Storage-as-a-Service. Ini menyediakan antarmuka layanan web sederhana yang dapat digunakan untuk menyimpan dan mengambil data dari mana saja di web.
 
 
 ## Amazon S3 SDK
 
 Untuk Ruby Anda dapat memilih antara SDK yang berbeda untuk Amazon S3:
 * [Amazon S3 Ruby SDK]
-* [Kabut]
+* [Fog]
 * [AWS-S3]
 * [RightAWS]
 * [S3]
@@ -19,50 +19,50 @@ Untuk menggunakan resmi Amazon S3 SDK dalam proyek Anda, tambahkan permata untuk
 
 ~~~ Ruby
 source 'https://rubygems.org'
-permata 'aws-sdk'
+gem 'aws-sdk'
 ~~~
 
 Ikuti [Amazon Panduan] (http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/java-dg-setup.html) untuk membuat akun dan mendapatkan Anda [AWS akses kredensial] (http: // aws.amazon.com/security-credentials).
 
 ## Contoh penggunaan:
 
-Cara yang disarankan untuk memberikan mandat AWS untuk aplikasi Anda adalah melalui variabel lingkungan. Untuk melakukan hal ini, gunakan [Config Add-on] (https://community.CloudKilat.ch/tutorial/custom-config-add-on/):
+Cara yang disarankan untuk memberikan kredensial AWS untuk aplikasi Anda adalah melalui variabel lingkungan. Untuk melakukan hal ini, gunakan [Config Add-on] (https://community.CloudKilat.ch/tutorial/custom-config-add-on/):
 
-~~~ Pesta
-$ Ironcliapp APP_NAME / default config.add AWS_ACCESS_KEY_ID = [YOUR_SECRET_KEY] AWS_SECRET_ACCESS_KEY = [YOUR_ACCESS_KEY] AWS_REGION = 'eu-barat 1'
+~~~ Bash
+$ ironapp APP_NAME/default config.add AWS_ACCESS_KEY_ID=[YOUR_SECRET_KEY] AWS_SECRET_ACCESS_KEY=[YOUR_ACCESS_KEY] AWS_REGION = 'eu-west1'
 ~~~
 
-Sekarang mari kita menunjukkan beberapa operasi pada ember dan benda-benda:
+Sekarang mari kita menunjukkan beberapa operasi pada bucket dan file:
 
 ~~~ Ruby
-membutuhkan 'aws-sdk'
-membutuhkan 'SecureRandom'
+require 'aws-sdk'
+require 'securerandom'
 
-s3 = AWS :: S3.new
-ember = s3.buckets.create ('testbucket' + SecureRandom.uuid)
+s3 = AWS::S3.new
+bucket = s3.buckets.create('testbucket' + SecureRandom.uuid)
 
-# Daftar ember
-s3.buckets.each melakukan | ember |
-    menempatkan bucket.name
-akhir
+# List buckets
+s3.buckets.each do |bucket|
+    puts bucket.name
+end
 
-# Objek Masukan
-bucket.objects ['key']. menulis (Pathname.new ('tmp.txt'))
+# Put object
+bucket.objects['key'].write(Pathname.new('tmp.txt'))
 
-# Baca objek
-puts bucket.objects ['key']. baca
+# Read object
+puts bucket.objects['key'].read
 
 
-# Objek Delete
-bucket.objects ['key']. delete
+# Delete object
+bucket.objects['key'].delete
 
-# Hapus ember
+# Delete bucket
 bucket.delete
 ~~~
 
 
 [Amazon S3 Ruby SDK]: https://aws.amazon.com/sdkforruby/
-[Kabut]: https://github.com/fog/fog
+[Fog]: https://github.com/fog/fog
 [AWS-S3]: https://rubygems.org/gems/aws-s3
 [RightAWS]: https://rubygems.org/gems/right_aws
 [S3]: https://github.com/qoobaa/s3

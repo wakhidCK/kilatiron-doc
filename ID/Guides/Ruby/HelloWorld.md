@@ -1,92 +1,92 @@
 # Menyebarkan Aplikasi Sinatra
-[Sinatra] [sinatra] adalah DSL untuk cepat membuat aplikasi web di Ruby dengan sedikit usaha.
+[Sinatra] [sinatra] adalah DSL untuk membuat aplikasi web di Ruby dengan cepat dan sedikit usaha.
 
 Dalam tutorial ini kita akan menunjukkan kepada Anda bagaimana untuk menggunakan aplikasi Sinatra di
-[CloudKilat]. Anda dapat menemukan [kode sumber di Github] [contoh-aplikasi] dan memeriksa [Ruby buildpack] fitur untuk didukung.
+[KilatIron]. Anda dapat menemukan [kode sumber di Github] [contoh-aplikasi] dan memeriksa [Ruby buildpack] fitur-fitur yang didukung.
 
 
-## The Sinatra App Dijelaskan
+## Aplikasi Sinatra
 
-### Dapatkan App
-Pertama, mari kita mengkloning Sinatra App dari repositori kami pada Github:
+### Dapatkan Aplikasi
+Pertama, mari kita mengkloning aplikasi Sinatra dari repositori kami pada Github:
 ~~~ Pesta
-$ Git clone https://github.com/cloudControl/ruby-sinatra-example-app.git
-$ Cd ruby-sinatra-contoh-aplikasi
+$ git clone https://github.com/cloudControl/ruby-sinatra-example-app.git
+$ cd ruby-sinatra-example-app
 ~~~
 
 Sekarang Anda memiliki aplikasi Sinatra kecil tapi berfungsi penuh.
 
-### Ketergantungan Tracking
-Sinatra melacak dependensi melalui [Bundler]. Persyaratan dibaca dari `Gemfile` (dan` Gemfile.lock`) di direktori root proyek. Aplikasi sederhana kami hanya tergantung pada Sinatra:
+### Melacak Ketergantungan
+Sinatra melacak ketergantungan melalui [Bundler]. Persyaratan dibaca dari `Gemfile` (dan` Gemfile.lock`) di direktori root proyek. Aplikasi sederhana kami hanya tergantung pada Sinatra:
 ~~~ Ruby
 source 'https://rubygems.org'
-permata 'sinatra'
+gem 'sinatra'
 ~~~
 
 Perhatikan bahwa ada juga `Gemfile.lock`. Ketika Anda mengubah ketergantungan,
-Anda harus menjalankan `bundel install` perintah untuk memperbarui` Gemfile.lock`. File ini harus dalam repositori Anda dan memastikan bahwa semua pengembang selalu
-menggunakan versi yang sama dari semua permata.
+Anda harus menjalankan `bundle install` perintah untuk memperbarui` Gemfile.lock`. File ini harus dalam repositori Anda dan memastikan bahwa semua pengembang selalu
+menggunakan versi yang sama dari semua gem.
 
 ### Proses Type Definition
 
-CloudKilat menggunakan [Procfile] tahu bagaimana untuk memulai proses Anda.
+KilatIron menggunakan [Procfile] untuk mengetahui bagaimana memulai proses Anda.
 
 Contoh kode sudah termasuk sebuah file yang bernama `Procfile` di tingkat atas repositori Anda. Ini terlihat seperti ini:
 ~~~
-web: bundel exec ruby ​​server.rb -e p produksi $ PORT
+web: bundle exec ruby server.rb -e production -p $PORT
 ~~~
 
-Kiri dari usus besar kita ditentukan ** diperlukan ** Jenis proses yang disebut `web` diikuti dengan perintah yang dimulai aplikasi dan mendengarkan pada port yang ditentukan oleh variabel lingkungan` $ PORT`.
+Kolom paling kiri **diperlukan** untuk mengetahui jenis proses, pada contoh ini dinamai `web` diikuti dengan perintah yang dimulai aplikasi dan mendengarkan pada port yang ditentukan oleh environment variable `$PORT`.
 
-## Mendorong dan Menyebarkan App
-Pilih nama yang unik untuk menggantikan `APP_NAME` tempat untuk aplikasi Anda dan membuatnya pada platform CloudKilat:
+## Deployment aplikasi
+Pilih nama yang unik untuk menggantikan `APP_NAME` untuk aplikasi Anda dan membuatnya pada platform KilatIron:
 ~~~ Pesta
-$ Ironcliapp APP_NAME membuat ruby
+$ ironapp APP_NAME create ruby
 ~~~
 
-Mendorong kode Anda ke repositori aplikasi, yang memicu penyebaran gambar proses build:
+Push kode Anda ke repositori aplikasi, yang memicu proses pembuatan image container:
 ~~~ Pesta
-$ Ironcliapp APP_NAME / dorongan bawaan
-Menghitung benda: 14, dilakukan.
-Delta kompresi menggunakan sampai 4 benang.
-Mengompresi objek: 100% (10/10), dilakukan.
-Menulis objek: 100% (14/14), 258,14 KiB, dilakukan.
-Total 14 (delta 0), kembali 14 (delta 0)
-       
------> Mendorong Menerima
------> Menggunakan versi Ruby: ruby-2.0.0
------> Dependensi Instalasi menggunakan Bundler versi 1.3.2
-       Menjalankan: bundel instalasi --without pengembangan: tes --path vendor / bundel --binstubs vendor / bundel / bin --deployment
-       Metadata permata Mengambil dari https: //rubygems.org / .........
-       Metadata permata Mengambil dari https://rubygems.org/ ..
-       Instalasi rak (1.5.2)
-       Instalasi rak-perlindungan (1.5.0)
-       Instalasi tilt (1.4.1)
-       Instalasi sinatra (1.4.3)
-       Menggunakan bundler (1.3.2)
-       Bundel Anda selesai! Itu diinstal ke ./vendor/bundle
-       Membersihkan cache bundler.
------> PERINGATAN:
-       Anda belum menyatakan versi Ruby di Gemfile Anda.
-       Untuk mengatur versi Ruby Anda tambahkan baris ini ke Gemfile Anda:
+$ ironapp APP_NAME / push default 
+Counting objects: 14, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (10/10), done.
+Writing objects: 100% (14/14), 258.14 KiB, done.
+Total 14 (delta 0), reused 14 (delta 0)
+
+-----> Receiving push
+-----> Using Ruby version: ruby-2.0.0
+-----> Installing dependencies using Bundler version 1.3.2
+       Running: bundle install --without development:test --path vendor/bundle --binstubs vendor/bundle/bin --deployment
+       Fetching gem metadata from https://rubygems.org/.........
+       Fetching gem metadata from https://rubygems.org/..
+       Installing rack (1.5.2)
+       Installing rack-protection (1.5.0)
+       Installing tilt (1.4.1)
+       Installing sinatra (1.4.3)
+       Using bundler (1.3.2)
+       Your bundle is complete! It was installed into ./vendor/bundle
+       Cleaning up the bundler cache.
+-----> WARNINGS:
+       You have not declared a Ruby version in your Gemfile.
+       To set your Ruby version add this line to your Gemfile:
        ruby '2.0.0'
------> Gambar Building
------> Gambar Mengunggah (31M)
+-----> Building image
+-----> Uploading image (31M)
 
-Untuk ssh: //APP_NAME@kilatiron.net/repository.git
- * [Cabang baru] Master -> Master
+To ssh://APP_NAME@kilatiron.net/repository.git
+ * [new branch]      master -> master
 ~~~
 
-Terakhir namun tidak sedikit menyebarkan versi terbaru dari aplikasi dengan ironapp yang menyebarkan perintah:
+Yang terakhir harus dilakukan adalah menyebarkan versi terbaru dari aplikasi dengan perintah ironapp deploy:
 ~~~ Pesta
-$ Ironcliapp APP_NAME / default menyebarkan
+$ ironapp APP_NAME/default deploy
 ~~~
 
-Selamat, Anda sekarang dapat melihat Anda berjalan Sinatra App di `http [s]: // APP_NAME.kilatiron.net`.
+Selamat, Anda sekarang dapat melihat aplikasi Sinatra Anda berjalan di `http[s]://APP_NAME.kilatiron.net`.
 
 
 [Sinatra]: http://www.sinatrarb.com/
-[CloudKilat]: http://www.cloudkilat.com/
+[KilatIron]: http://www.cloudkilat.com/
 [CloudKilat-doc-user]: /Platform%20Documentation.md/#user-accounts
 [CloudKilat-doc-cmdline]: /Platform%20Documentation.md/#command-line-client-web-console-and-api
 [Ruby buildpack]: https://github.com/cloudControl/buildpack-ruby
