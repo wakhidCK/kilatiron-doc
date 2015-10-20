@@ -25,7 +25,7 @@ $ sudo easy_install pip
 $ sudo pip install ironcli
 ~~~
 
-**Windows:** Please download the provided [installer](https://download.kilatiron.net/windows).
+**Windows:** Please download the provided [installer](https://download.cloudcontrolled.net/windows).
 
 ## Create a User Account (if you haven't already)
 
@@ -102,8 +102,8 @@ http[s]://APP_NAME.kilatiron.net
 
 ## Cheatsheet
 
-Grab [our cheatsheet (PDF)](https://github.com/cloudControl/kilatiron-doc/blob/master/Cheat%20Sheet%20Kilat%20Iron.pdf) to have the most important command line client commands handy at all times.
+Grab [our cheatsheet (PDF)](https://github.com/CloudKilat/kilatiron-doc/blob/master/Cheat%20Sheet%20Kilat%20Iron.pdf) to have the most important command line client commands handy at all times.
 
 ## Documentation
 
-To learn more about all the platform features and how to integrate it seamlessly into the development life cycle please refer to the extensive [platform documentation](https://github.com/cloudControl/kilatiron-doc/blob/master/Platform%20Documentation.md).
+To learn more about all the platform features and how to integrate it seamlessly into the development life cycle please refer to the extensive [platform documentation](https://github.com/CloudKilat/kilatiron-doc/blob/master/Platform-Documentation.md).
