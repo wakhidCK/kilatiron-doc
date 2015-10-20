@@ -155,7 +155,7 @@ applications.
 [Node.js]: http://nodejs.org/
 [Express]: http://expressjs.com/
 [npm]: https://npmjs.org/
-CloudKilat: http://www.cloudcontrol.com
+[CloudKilat]: http://www.cloudkilat.com/
 [Node.js buildpack]: https://github.com/cloudControl/buildpack-nodejs
 [get-conf]: https://www.cloudcontrol.com/dev-center/guides/nodejs/add-on-credentials-1
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile

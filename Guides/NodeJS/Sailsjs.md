@@ -148,7 +148,7 @@ Congratulations, you can now see your Sails.js application running at
 [Sails getting started page]: http://sailsjs.org/#!getStarted
 [Ruby on Rails]: http://rubyonrails.org/
 [npm]: https://npmjs.org/
-CloudKilat: http://www.cloudcontrol.com
+[CloudKilat]: http://www.cloudkilat.com/
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile
 [get the MySQL credentials]: https://www.cloudcontrol.com/dev-center/guides/nodejs/add-on-credentials-1
 [websockets]: http://socket.io/

@@ -123,6 +123,6 @@ $ ironapp APP_NAME/default deploy
 Congratulations, you can now see your Go app running at `http[s]://APP_NAME.kilatiron.net`.
 
 [Go]: http://golang.org/
-CloudKilat: http://www.cloudcontrol.com
+[CloudKilat]: http://www.cloudkilat.com/
 [godep]: https://github.com/tools/godep
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile

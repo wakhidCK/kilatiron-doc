@@ -205,7 +205,7 @@ This guide showed how to run both Flower aswell as a Celery worker on CloudKilat
 [Celery]: http://celeryproject.org/
 [CloudAMQP Add-on]: https://www.cloudcontrol.com/add-ons/cloudamqp
 [Worker]: https://www.cloudcontrol.com/dev-center/platform-documentation#workers
-CloudKilat: http://www.cloudcontrol.com
+[CloudKilat]: http://www.cloudkilat.com/
 [celeryguide]: http://docs.celeryproject.org/en/latest/getting-started/first-steps-with-celery.html
 [Flower]: http://docs.celeryproject.org/en/latest/userguide/monitoring.html#flower-real-time-celery-web-monitor
 [Python buildpack]: https://github.com/cloudControl/buildpack-python

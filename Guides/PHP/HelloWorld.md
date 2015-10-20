@@ -112,7 +112,7 @@ Congratulations, you can now see your Silex app running at `http[s]://APP_NAME.k
 
 
 [silex]: http://silex.sensiolabs.org/
-CloudKilat: http://www.cloudcontrol.com
+[CloudKilat]: http://www.cloudkilat.com/
 [CloudKilat-doc-user]: https://www.cloudcontrol.com/dev-center/platform-documentation#user-accounts
 [CloudKilat-doc-cmdline]: https://www.cloudcontrol.com/dev-center/platform-documentation#platform-access
 [php buildpack]: https://github.com/cloudControl/buildpack-php

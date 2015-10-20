@@ -86,7 +86,7 @@ Congratulations, you can now see your Sinatra App running at `http[s]://APP_NAME
 
 
 [sinatra]: http://www.sinatrarb.com/
-CloudKilat: http://www.cloudcontrol.com
+[CloudKilat]: http://www.cloudkilat.com
 [CloudKilat-doc-user]: https://www.cloudcontrol.com/dev-center/platform-documentation#user-accounts
 [CloudKilat-doc-cmdline]: https://www.cloudcontrol.com/dev-center/platform-documentation#platform-access
 [ruby buildpack]: https://github.com/cloudControl/buildpack-ruby

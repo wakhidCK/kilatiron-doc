@@ -136,7 +136,7 @@ Good luck building your apps using Node.js and CloudKilat.
 [example on how to use Node.js with MongoDB]: https://www.cloudcontrol.com/dev-center/guides/nodejs/express
 [Node.js]: http://nodejs.org/
 [npm]: https://npmjs.org/
-CloudKilat: http://www.cloudcontrol.com
+[CloudKilat]: http://www.cloudkilat.com/
 [Node.js buildpack]: https://github.com/cloudControl/buildpack-nodejs
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile
 [platform documentation]: https://www.cloudcontrol.com/dev-center/platform-documentation

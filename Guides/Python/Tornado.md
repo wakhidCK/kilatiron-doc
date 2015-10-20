@@ -126,6 +126,6 @@ $ ironapp APP_NAME/default deploy
 Congratulations, you can now see your Tornado app running at `http://APP_NAME.kilatiron.net`.
 
 [Tornado]: http://www.tornadoweb.org
-CloudKilat: http://www.cloudcontrol.com
+[CloudKilat]: http://www.cloudkilat.com/
 [Python buildpack]: https://github.com/cloudControl/buildpack-python
 [Procfile]: https://www.cloudcontrol.com/dev-center/platform-documentation#buildpacks-and-the-procfile
