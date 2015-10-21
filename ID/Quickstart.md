@@ -1,74 +1,67 @@
-# Caracepat memulai CloudKilat 
+Cara Cepat Menggunakan Kilat Iron di CloudKilat
 
-Untuk memulai dengan CloudKilat sangatlah mudah. Ikuti 5 menit caracepat ini untuk mendapatkan
-Aplikasi pertama Anda yang berjalan di CloudKilat PaaS.
+Sangat mudah untuk memulai dengan Kilat Iron. Ikuti cara cepat 5 menit agar aplikasi pertama Anda berjalan di PaaS CloudKilat.
 
-**Catatan:** Semua contoh dimulai dengan $ seharusnya dijalankan dalam terminal.
-Untuk Windows sebaiknya menggunakan Git bash, yang dibundel dengan Windows
-Instalasi Git. Sepanjang caracepat ini dan seluruh dokumentasi
-penampung ditandai dengan ditulis huruf besar semua.
+**Catatan:** Semua contoh dimulai dengan $ harus dijalankan di terminal. Untuk Windows kami sarankan menggunakan Git bash, yang sudah bundling dengan instaler Windows Git. Didalam panduan cara cepat ini dan semua dokumentasi ditandai dengan huruf kapital. 
 
-## Pasang Perangkatlunak yang Diperlukan
+## Instalasi Software yang dibutuhkan
+### Kebutuhan
 
-### Persyaratan
+* git version control system
+* ironuser/ironapp command line client
 
-* Sistem kontrol versi git
-* Perintah ironuser/ironapp baris klien
+### Instal git
 
-### Pasang git
+Instal git dari situs official http://git-scm.com/ atau dari dari paket repository yang Anda pilih. Untuk Windows kami rekomendasikan untuk menggunakan instaler official dan Git bash. Lanjutkan ke langkah selanjutnya apabila software yang dibutuhkan sudah diinstal semuanya.
 
-Instal Git dari [situs resmi](http://git-scm.com/) atau dari paket
-repositori pilihan Anda. Untuk Windows dianjurkan untuk menggunakan installer resmi dan Git bash. Silahkan instal aplikasi tersebut.
+### Instal ironcli
 
-### Instal baris perintah klien
-
-**Linux/Mac OS X:** Kami sarankan menginstal klien baris perintah melalui pip.
+**Linux/Mac OS X:** Kami sarankan melakukan instalasi ironcli melalui pip
 
 ~~~bash
-# Jika Anda belum memiliki pip
+# Jika pip belum terinstall
 $ sudo easy_install pip
 $ sudo pip install ironcli
 ~~~
 
-**Windows:** Silahkan download yang disediakan [installer].
+**Windows:** Mohon untuk mengunduh instaler yang disediakan di https://downcloud.cloudcontrolled.net/windows
 
-## Buat Akun Pengguna (jika Anda belum memilikinya)
+## Membuat Akun User (Jika belum ada)
 
-Anda dapat mendaftar di [www.cloudkilat.com](http://www.cloudkilat.com/).
+Silahkan mendaftar pada website kami (www.cloudkilat.com).
 
-## Tambahkan Public Key
+## Menambah Public Key
 
-~~~ bash
+~~~bash
 $ ironuser key.add
-Email: EMAIL
+Email   : EMAIL
 Password: PASSWORD
 ~~~
 
-Baris perintah klien akan menentukan apakah Anda sudah memiliki kunci publik dan menguploadnya atau menawarkan untuk membuatnya.
+Command line client akan menentukan apakah Anda sudah memiliki public key dan mengunggahnya atau menawarkan untuk membuatnya.
 
 ## Membuat Aplikasi Pertama di CloudKilat
 
-Membuat aplikasi baru pada platform CloudKilat dengan memberikan nama  yang unik `APP_NAME` (nama yang akan digunakan sebagai subdomain `.kilatiron.net`) dan pilihlah tipenya
-`TYPE`.
+Membuat aplikasi baru pada platform CloudKilat dengan memberikan 'APP_NAME' yang unik (Nama biasanya seperti subdomain '.kilatiron.net') dan pilih 'TYPE' aplikasi.
 
 ~~~bash
 $ ironapp APP_NAME create [java, php, python, ruby, nodejs]
 ~~~
 
-Jika `APP_NAME` sudah digunakan, silakan memilih nama yang lain.
+Jika 'APP_NAME' sudah ada sebelumnya, maka pilih nama yang lain.
 
-Ubah ke direktori kerja di mana Anda ingin menyimpan sumberkode Anda.
+Mengganti direktori untuk menyimpan source code.
 
 ~~~bash
-$ Cd PATH_TO/YOUR_WORKDIR
+$ cd PATH_TO/YOUR_WORKDIR
 ~~~
 
-Mengkloning salah satu contoh aplikasi dalam bahasa pemrograman pilihan Anda dan mendorongnya ke platform CloudKilat.
+Menggandakan salah satu contoh aplikasi sesuai dengan bahasa pemrograman yang dipilih lalu menjalankannya di platform CloudKilat.
 
 ~~~bash
 # untuk Java
-$ git clone https://github.com/cloudControl/java-jetty-jsp-example-app.git
-$ cd java-jetty-jsp-example-app
+$ git clone https://github.com/cloudControl/java-jetty-example-app.git
+$ cd java-jetty-example-app
 
 # untuk PHP
 $ git clone https://github.com/cloudControl/php-silex-example-app.git
@@ -86,35 +79,30 @@ $ cd ruby-sinatra-example-app
 $ git clone https://github.com/cloudControl/nodejs-express-example-app.git
 $ cd nodejs-express-example-app
 
-# Lalu kirim ke repositori
+# Melakukan push
 $ ironapp APP_NAME push
 ~~~
 
-Kiriman anda akan membuat persiapan untuk aplikasi yang akan dipasang seperti 
-mengunduh persyaratan dan banyak lagi. Anda bisa melihat prosesnya di terminal.
+Dengan push menjadikan pancingan untuk mempersiapkan aplikasi Anda ke tahap deployment seperti mengumpulkan kebutuhan aplikasi dan lainnya. Anda dapat melihat hasil dari proses build pada terminal Anda.
 
-## Pasang Aplikasi Anda di CloudKilat
+## Deploy Aplikasi Anda pada CloudKilat
 
-Pasang aplikasi anda dengan
+Deploy aplikasi Anda dengan cara
 
 ~~~bash
 $ ironapp APP_NAME deploy
 ~~~
 
-**Selamat, aplikasi anda sudah berjalan dan dapat digunakan.**
+**Selamat, aplikasi Anda sudah bisa diakses.**
 
 ~~~bash
 http[s]://APP_NAME.kilatiron.net
 ~~~
 
-## Contekan
+## Rangkuman
 
-Unduh  [our cheatsheet (PDF)](/cloudkilat_cheatsheet.pdf) untuk memiliki baris perintah yang penting kapan saja.
+Dapatkan Rangkuman kami versi PDF pada tautan berikut : https://github.com/CloudKilat/kilatiron-doc/blob/master/Cheat%20Sheet%20Kilat%20Iron.pdf untuk mengetahui command line penting dan dapat membantu Anda.
 
 ## Dokumentasi
 
-Untuk mempelajari lebih lanjut tentang semua fitur platform dan bagaimana cara untuk mengintegrasikannya
-ke dalam siklus hidup pengembangan silahkan lihat ekstensif
-[Dokumentasi platform](/Platform Documentation.md).
-
-[installer]: https://www.cloudcontrol.com/download/win
+Untuk mengetahui lebih lanjut dari fitur platform dan bagaimana untuk mengintegrasikannya menjadi siklus hidup development silahkan merujuk ke dokumentasi platform berikut : platform documentation](https://github.com/CloudKilat/kilatiron-doc/blob/master/Platform-Documentation.md
