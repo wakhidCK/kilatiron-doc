@@ -1,4 +1,4 @@
-**Cara Cepat Menggunakan Kilat Iron di CloudKilat**
+## Cara Cepat Menggunakan Kilat Iron di CloudKilat
 
 Sangat mudah untuk memulai dengan Kilat Iron. Ikuti cara cepat 5 menit agar aplikasi pertama Anda berjalan di PaaS CloudKilat.
 
