@@ -3,7 +3,7 @@
 
 Dalam tutorial ini kita akan mempelajari cara untuk men-deploy aplikasi Flask
 pada [KilatIron]. Anda dapat menemukan [kode sumber di Github] [Contoh-aplikasi] dan
-memeriksa [Python buildpack] untuk fitur-fitur yang didukung.
+memeriksa [Python buildpack] untuk mengetahui fitur-fitur yang didukung.
 
 ## Aplikasi Flask
 
@@ -15,7 +15,7 @@ $ git clone https://github.com/cloudControl/python-flask-example-app.git
 $ cd python-flask-example-app
 ~~~
 
-Sekarang Anda sudah memiliki aplikasi Flask kecil tapi berfungsi penuh.
+Sekarang Anda sudah memiliki aplikasi Flask sederhana.
 
 ### Melacak Ketergantungan
 Python buildpack melacak ketergantungan melalui pip dan file `requirements.txt`.

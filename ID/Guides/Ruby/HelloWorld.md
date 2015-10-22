@@ -3,7 +3,7 @@
 
 Dalam tutorial ini kita akan menunjukkan kepada Anda bagaimana cara menggunakan aplikasi Sinatra di
 [KilatIron]. Anda dapat menemukan [kode sumber di Github] [contoh-aplikasi] dan memeriksa [Ruby buildpack]
-fitur-fitur yang didukung.
+untuk mengetahui fitur-fitur yang didukung.
 
 
 ## Aplikasi Sinatra
@@ -15,7 +15,7 @@ $ git clone https://github.com/cloudControl/ruby-sinatra-example-app.git
 $ cd ruby-sinatra-example-app
 ~~~
 
-Sekarang Anda memiliki aplikasi Sinatra kecil tapi berfungsi penuh.
+Sekarang Anda memiliki aplikasi Sinatra sederhana.
 
 ### Melacak Ketergantungan
 Sinatra melacak ketergantungan melalui [Bundler]. Persyaratan dibaca dari `Gemfile` (dan `Gemfile.lock`) di direktori root proyek.

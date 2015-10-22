@@ -1,122 +1,123 @@
-#Deploying Aplikasi Silex pada CloudKilat
+# Aplikasi Silex pada KilatIron
 
-[Silex] adalah microframework PHP untuk PHP 5.3. Hal ini terinspirasi oleh sinatra dan
-dibangun di pundak Symfony2 dan Jerawat.
+[Silex] adalah microframework PHP untuk PHP 5.3. Framework ini terinspirasi oleh sinatra dan
+dibangun dengan menggunakan Symfony2 dan Pimple.
 
-Dalam tutorial ini kita akan menunjukkan kepada Anda bagaimana untuk menggunakan aplikasi Silex pada
-[CloudKilat]. Anda dapat menemukan [kode sumber di Github] [contoh-aplikasi] dan cek
-keluar [php buildpack] untuk fitur didukung.
+Dalam tutorial ini kita akan menunjukkan kepada Anda bagaimana cara menggunakan aplikasi Silex di
+[KilatIron]. Anda dapat menemukan [kode sumber di Github] [contoh-aplikasi] dan memeriksa [PHP buildpack]
+untuk mengetahui fitur-fitur yang didukung.
 
 
-## The Silex App Dijelaskan
+## Silex
 
-### Dapatkan App
+### Dapatkan Aplikasi
 Pertama, mari kita mengkloning Silex App dari repositori kami pada Github:
-~~~ Pesta
-$ Git clone https://github.com/cloudControl/php-silex-example-app.git
-$ Cd php-silex-contoh-aplikasi
+~~~bash
+$ git clone https://github.com/cloudControl/php-silex-example-app.git
+$ cd php-silex-example-app
 ~~~
 
-Sekarang Anda memiliki aplikasi Silex kecil tapi berfungsi penuh.
+Sekarang Anda memiliki aplikasi Silex sederhana.
 
 
-### Ketergantungan Tracking
-PHP buildpack melacak dependensi melalui [Komposer]. Persyaratan dibaca
+### Melacak Ketergantungan
+PHP buildpack melacak ketergantungan melalui [Composer]. Persyaratan dibaca
 dari `composer.json` di direktori root proyek. Untuk aplikasi sederhana ini
 persyaratan adalah:
 
-~~~ Json
+~~~json
 {
-    "Minimum stabilitas": "dev",
-    "Membutuhkan": {
-        "Silex / silex": "*",
-        "Ranting / ranting": "*",
-        "Mheap / Silex-Assetic": "*",
-        "Natxet / CssMin": "*"
+    "minimum-stability": "dev",
+    "require": {
+        "silex/silex": "*",
+        "twig/twig": "*",
+        "mheap/Silex-Assetic": "*",
+        "natxet/CssMin": "*"
     }
 }
 ~~~
 
-Perhatikan bahwa ada juga `composer.lock`. Ketika Anda mengubah ketergantungan,
+Perhatikan bahwa ada file `composer.lock`. Ketika Anda mengubah ketergantungan,
 Anda harus menjalankan `composer.phar update` perintah untuk memperbarui
-`Composer.lock`. File ini harus dalam repositori Anda dan memastikan bahwa semua
-pengembang selalu menggunakan versi yang sama dari semua perpustakaan. Hal ini juga membuat
-perubahan terlihat di git. Juga mencatat bahwa `.gitignore` Anda harus berisi
-`Vendor` seperti yang diusulkan dalam
-[Komposer dokumentasi] (http://getcomposer.org/doc/01-basic-usage.md#installing-dependencies),
-karena Anda tidak perlu semua bahwa kode dalam repositori Anda.
+`composer.lock`. File ini harus dalam repositori Anda dan memastikan bahwa semua
+pengembang selalu menggunakan versi yang sama dari semua library. Hal ini juga membuat
+perubahan terlihat di git. Dan ingat bahwa `.gitignore` Anda harus berisi
+`vendor` seperti yang diusulkan dalam
+[dokumentasi Composer] (http://getcomposer.org/doc/01-basic-usage.md#installing-dependencies),
+karena Anda tidak membutuhkan semua kode tersebut dalam repositori Anda.
 
 
 ## Document Root Definition
 
-PHP buildpack memungkinkan pengguna untuk menimpa akar dokumen default. Hal ini dilakukan melalui
-file konfigurasi di `.buildpack / apache / conf /` direktori. File harus menggunakan
-`Ekstensi .conf`. Dalam tutorial ini file yang bernama `documentroot.conf` dan memiliki
-konten berikut:
-~~~ Conf
-DocumentRoot / app / www / web
-<Directory / app / www / web>
-    AllowOverride Semua
-    Pilihan SymLinksIfOwnerMatch
-    Agar Deny, Allow
-    Izinkan dari Semua
+PHP buildpack memungkinkan pengguna untuk menimpa root dokumen default. Hal ini dilakukan melalui
+file konfigurasi di direktori `.buildpack/apache/conf/`. File harus menggunakan
+ekstensi `.conf`. Dalam tutorial ini file bernama `documentroot.conf` dan memiliki
+konten sebagai berikut:
+~~~conf
+DocumentRoot /app/www/web
+<Directory /app/www/web>
+    AllowOverride All
+    Options SymlinksIfOwnerMatch
+    Order Deny,Allow
+    Allow from All
     DirectoryIndex index.php index.html index.htm
-</ Directory>
+</Directory>
 ~~~
 
-Untuk informasi lebih lanjut lihat [dokumentasi buildpack] [php buildpack].
+Untuk informasi lebih lanjut lihat [dokumentasi buildpack] [PHP buildpack].
 
-## Mendorong dan Menyebarkan App
-Pilih nama yang unik untuk menggantikan `APP_NAME` tempat untuk aplikasi Anda dan membuatnya pada platform CloudKilat:
-~~~ Pesta
-$ Ironcliapp APP_NAME membuat php
+## Push dan Deploy Aplikasi
+
+Pilih nama yang unik untuk menggantikan `APP_NAME` untuk aplikasi Anda dan membuatnya pada platform KilatIron:
+
+~~~bash
+$ ironapp APP_NAME create php
 ~~~
 
-Mendorong kode Anda ke repositori aplikasi, yang memicu penyebaran gambar proses build:
+Push kode Anda ke repositori aplikasi, yang memicu proses pembuatan image container:
 ~~~
-$ Ironcliapp APP_NAME / dorongan bawaan
-Menghitung benda: 29, dilakukan.
-Delta kompresi menggunakan sampai 4 benang.
-Mengompresi objek: 100% (21/21), dilakukan.
-Menulis objek: 100% (29/29), 459,72 KiB | 720 KiB / s, dilakukan.
-Total 29 (delta 5), ​​kembali 18 (delta 0)
+$ ironapp APP_NAME/default push
+Counting objects: 29, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (21/21), done.
+Writing objects: 100% (29/29), 459.72 KiB | 720 KiB/s, done.
+Total 29 (delta 5), reused 18 (delta 0)
 
------> Mendorong Menerima
-       Repositori Memuat komposer dengan informasi paket
-       Instalasi dependensi (termasuk membutuhkan-dev) dari file kunci
-         - Instalasi symfony / proses (dev-master 998d489)
-           Kloning 998d489806011e1d790db5fc0284e6083cc8ea8b
+-----> Receiving push
+       Loading composer repositories with package information
+       Installing dependencies (including require-dev) from lock file
+         - Installing symfony/process (dev-master 998d489)
+           Cloning 998d489806011e1d790db5fc0284e6083cc8ea8b
 
-         - Instalasi kriswallsmith / assetic (dev-master f9f754d)
-           Kloning f9f754dc7524acd6daf0bf510d22c055b4967e08
+         - Installing kriswallsmith/assetic (dev-master f9f754d)
+           Cloning f9f754dc7524acd6daf0bf510d22c055b4967e08
 
-         - Instalasi symfony / finder (dev-master 57b6772)
-           Kloning 57b67729f863be8b950441a739b82678b91accde
+         - Installing symfony/finder (dev-master 57b6772)
+           Cloning 57b67729f863be8b950441a739b82678b91accde
 
            ...
 
-       Menghasilkan file autoload
------> Gambar Building
------> Gambar Mengunggah (14M)
+       Generating autoload files
+-----> Building image
+-----> Uploading image (14M)
 
-Untuk ssh: //APP_NAME@kilatiron.net/repository.git
-* [Cabang baru] Master -> Master
+To ssh://APP_NAME@kilatiron.net/repository.git
+* [new branch]      master -> master
 ~~~
 
-Terakhir namun tidak sedikit menyebarkan versi terbaru dari aplikasi dengan ironapp yang menyebarkan perintah:
-~~~ Pesta
-$ Ironcliapp APP_NAME / default menyebarkan
+Yang terakhir harus dilakukan adalah menyebarkan versi terbaru dari aplikasi dengan perintah ironapp deploy:
+~~~bash
+$ ironapp APP_NAME/default deploy
 ~~~
 
-Selamat, Anda sekarang dapat melihat aplikasi Silex Anda berjalan pada `http [s]: // APP_NAME.kilatiron.net`.
-
+Selamat, Anda sekarang dapat melihat aplikasi Silex Anda berjalan di `http[s]://APP_NAME.kilatiron.net`.
 
 [Silex]: http://silex.sensiolabs.org/
-[CloudKilat]: http://www.cloudkilat.com/
-[CloudKilat-doc-user]: / Landasan% 20Documentation / # user-account
-[CloudKilat-doc-cmdline]: / Landasan% 20Documentation / # baris perintah-client-web-konsol-dan-api "dokumentasi CloudKilat-baris perintah-client"
-[Php buildpack]: https://github.com/cloudControl/buildpack-php
-[Procfile]: / Landasan% 20Documentation / # buildpacks-dan-the-procfile
+[KilatIron]: http://www.cloudkilat.com/
+[CloudKilat-doc-user]: /Platform%20Documentation.md/#user-accounts
+[CloudKilat-doc-cmdline]: /Platform%20Documentation.md/#command-line-client-web-console-and-api
+[PHP buildpack]: https://github.com/cloudControl/buildpack-php
+[Procfile]: /Platform%20Documentation.md/#buildpacks-and-the-procfile
 [Git]: https://help.github.com/articles/set-up-git
-[Komposer]: http://getcomposer.org/
+[Composer]: http://getcomposer.org/
 [Contoh-aplikasi]: https://github.com/cloudControl/php-silex-example-app
