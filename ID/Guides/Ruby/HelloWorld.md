@@ -44,11 +44,13 @@ aplikasi dan mendengarkan pada port yang ditentukan oleh environment variable `$
 
 ## Push dan Deploy Aplikasi
 Pilih nama yang unik untuk menggantikan `APP_NAME` untuk aplikasi Anda dan membuatnya pada platform KilatIron:
+
 ~~~bash
 $ ironapp APP_NAME create ruby
 ~~~
 
 Push kode Anda ke repositori aplikasi, yang memicu proses pembuatan image container:
+
 ~~~bash
 $ ironapp APP_NAME/default push
 Counting objects: 14, done.
@@ -82,6 +84,7 @@ To ssh://APP_NAME@kilatiron.net/repository.git
 ~~~
 
 Yang terakhir harus dilakukan adalah menyebarkan versi terbaru dari aplikasi dengan perintah ironapp deploy:
+
 ~~~bash
 $ ironapp APP_NAME/default deploy
 ~~~
