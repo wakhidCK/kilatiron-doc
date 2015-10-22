@@ -55,7 +55,7 @@ end
 # Contoh
 
 KilatIron menawarkan sejumlah solusi penyimpanan data melalui [Add-on Marketplace].
-Di bawah ini Anda dapat melihat bagaimana mengakses kredensial Add-on untuk MySQL.
+Di bawah ini Anda dapat melihat bagaimana mengakses kredensial untuk Add-on MySQL.
 
 ## MySQL
 

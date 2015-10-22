@@ -1,4 +1,4 @@
-# Menyebarkan Aplikasi Sinatra
+# Aplikasi Sinatra
 [Sinatra] [sinatra] adalah DSL untuk membuat aplikasi web di Ruby dengan cepat dan sedikit usaha.
 
 Dalam tutorial ini kita akan menunjukkan kepada Anda bagaimana cara menggunakan aplikasi Sinatra di
@@ -18,8 +18,8 @@ $ cd ruby-sinatra-example-app
 Sekarang Anda memiliki aplikasi Sinatra sederhana.
 
 ### Melacak Ketergantungan
-Sinatra melacak ketergantungan melalui [Bundler]. Persyaratan dibaca dari `Gemfile` (dan `Gemfile.lock`) di direktori root proyek.
-Aplikasi sederhana kami hanya tergantung pada Sinatra:
+Sinatra melacak ketergantungan melalui [Bundler]. Persyaratan dibaca dari `Gemfile` (dan `Gemfile.lock`)
+di direktori root repositori Anda.  Aplikasi sederhana kami hanya tergantung pada Sinatra:
 
 ~~~ruby
 source 'https://rubygems.org'
@@ -39,10 +39,11 @@ Contoh kode sudah termasuk sebuah file yang bernama `Procfile` di tingkat atas r
 web: bundle exec ruby server.rb -e production -p $PORT
 ~~~
 
-Kolom paling kiri **diperlukan** untuk mengetahui jenis proses, pada contoh ini dinamai `web` diikuti dengan perintah untuk memulai
-aplikasi dan mendengarkan pada port yang ditentukan oleh environment variable `$PORT`.
+Kolom paling kiri **diperlukan** untuk mengetahui jenis proses, pada contoh ini dinamai `web` diikuti dengan perintah
+untuk menjalankan aplikasi dan mendengarkan pada port yang ditentukan oleh environment variable `$PORT`.
 
 ## Push dan Deploy Aplikasi
+
 Pilih nama yang unik untuk menggantikan `APP_NAME` untuk aplikasi Anda dan membuatnya pada platform KilatIron:
 
 ~~~bash

@@ -7,11 +7,10 @@ muncul di kontrol versi dan menimbulkan potensi masalah keamanan.
 
 Ada dua cara untuk mendapatkan [Kredensial Add-on] dalam aplikasi Python.
 
-## Membaca Kredensial dari Environment
+## Membaca Kredensial dari File Kredensial
 
-Secara default, semua Add-on kredensial dapat ditemukan di sebuah disediakan JSON berkas,
-jalan mana yang terkena di `variabel lingkungan CRED_FILE`. Anda dapat melihat
-format file lokal dengan perintah:
+Semua [Kredensial Add-on] dapat ditemukan di sebuah JSON file juga, path ke file tersebut
+bisa diketahui dengan membaca environment variable `CRED_FILE`. Anda dapat melihat format file dengan perintah:
 ~~~bash
 $ ironapp addon.creds APP_NAME/DEP_NAME
 ~~~
@@ -54,7 +53,7 @@ yang tersedia dalam deployment Anda.
 # Contoh
 
 KilatIron menawarkan sejumlah solusi penyimpanan data melalui [Add-on Marketplace].
-Di bawah ini Anda dapat melihat bagaimana mengakses kredensial Add-on untuk MySQL.
+Di bawah ini Anda dapat melihat bagaimana mengakses kredensial untuk Add-on MySQL.
 
 ## MySQL
 
@@ -81,7 +80,7 @@ db_config = {
 Anda dapat merujuk pada perintah `addon.creds` untuk melihat nama-nama variabel yang sebenarnya dan nilai-nilainya.
 
 [Env-vars]: /Platform%20Documentation.md/#environment-variables
-[Add-on kredensial]: /Platform%20Documentation.md/#add-on-credentials
+[kredensial Add-on]: /Platform%20Documentation.md/#add-on-credentials
 [Add-on Marketplace]: http://www.cloudkilat.com/
 [Custom Config Add-on]: /Add-on%20Documentation/Deployment/Custom%20Config.md
 [MySQL Bersama Add-on]: /Add-on%20Documentation/Data%20Storage/MySQLs.md

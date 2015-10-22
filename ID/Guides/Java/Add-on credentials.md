@@ -13,29 +13,31 @@ Secara default, setiap Add-on mengekspos identitasnya di environment. Anda bisa
 mencari nama variabel di masing-masing dokumentasi Add-on. Untuk membacanya, cukup gunakan method `System.getenv()` dalam kode Anda.
 Beberapa contoh untuk database Add-ons dapat dilihat di bagian terakhir.
 
-Jika Anda tidak ingin mengekspos identitasnya tersebut di lingkungan, Anda bisa
-menonaktifkan mereka dengan menjalankan:
-~~~ Bash
+Jika Anda tidak ingin mengekspos identitasnya tersebut di environment, Anda bisa
+menonaktifkannya dengan menjalankan:
+
+~~~bash
 $ ironapp APP_NAME/DEP_NAME config.add SET_ENV_VARS = false
 ~~~
 
-Kredensial Add-on masih bisa dibaca dari file kredensial, seperti yang dijelaskan di bagian selanjutnya.
+Kredensial Add-on juga bisa dibaca dari file kredensial, seperti yang dijelaskan di bagian selanjutnya.
 
 Perhatikan bahwa ada beberapa [environment variable] menarik lainnya
 tersedia dalam deployment Anda.
 
 ## Membaca Kredensial dari File Kredensial
 
-Semua [Kredensial Add-on] dapat ditemukan di sebuah tersedia JSON file juga, jalan mana yang terkena di
-yang environtment variable `CRED_FILE`. Anda dapat melihat format file dengan perintah:
-~~~ Bash
+Semua [Kredensial Add-on] dapat ditemukan di sebuah JSON file juga, path ke file tersebut
+bisa diketahui dengan membaca environment variable `CRED_FILE`. Anda dapat melihat format file dengan perintah:
+
+~~~bash
 $ ironapp addon.creds APP_NAME/DEP_NAME
 ~~~
 
-Kami menyediakan [helper class KilatIron credentials] sederhana untuk mendapatkan kredensial Add-on dari file tersebut.
-Hal ini membutuhkan [json-simple], Java toolkit sederhana untuk encode atau decode JSON teks dengan mudah.
-Untuk menggunakannya dalam proyek Anda, tambahkan pada maven:
-~~~ Xml
+Kami telah menyediakan [helper class KilatIron credentials] sederhana untuk mendapatkan kredensial Add-on dari file tersebut.
+Class ini membutuhkan [json-simple], toolkit Java sederhana untuk encode dan decode teks JSON dengan mudah.
+Untuk menggunakannya dalam proyek Anda, tambahkan pada Maven:
+~~~xml
 <dependencies>
     <dependency>
         <groupId>com.googlecode.json-simple</groupId>
@@ -46,7 +48,7 @@ Untuk menggunakannya dalam proyek Anda, tambahkan pada maven:
 ~~~
 
 Sekarang Anda bisa mendapatkan kredensial seperti ini:
-~~~ Java
+~~~java
 // e.g. untuk MySQLs
 Credentials cr = Credentials.getInstance();
 String database = (String)cr.getCredential("MYSQLS_DATABASE", "MYSQLS");
@@ -55,20 +57,21 @@ String database = (String)cr.getCredential("MYSQLS_DATABASE", "MYSQLS");
 # Contoh
 
 KilatIron menawarkan sejumlah solusi penyimpanan data melalui [Add-on Marketplace].
-Di bawah ini Anda dapat menemukan contoh cara mengakses kredensial Add-on untuk MySQL.
+Di bawah ini Anda dapat melihat bagaimana mengakses kredensial untuk Add-on MySQL.
 
 ## MySQL
 Untuk menambahkan database MySQL, gunakan [MySQL Shared Add-on].
 
 Berikut adalah potongan kode Java yang membaca pengaturan database dari environment variable:
-~~~ Java
+~~~java
 String database = System.getenv("MYSQLS_DATABASE");
 String host     = System.getenv("MYSQLS_HOSTNAME");
 int port        = Integer.valueOf(System.getenv("MYSQLS_PORT"));
 String username = System.getenv("MYSQLS_USERNAME");
 String password = System.getenv("MYSQLS_PASSWORD");
 ~~~
-Ingat, Anda selalu dapat merujuk pada addon.creds perintah untuk melihat nama-nama variabel yang sebenarnya dan nilai-nilai.
+
+Anda dapat merujuk pada perintah `addon.creds` untuk melihat nama-nama variabel yang sebenarnya dan nilai-nilainya.
 
 [Aplikasi Java dengan MySQL]: https://github.com/cloudControl/java-mysql-example-app
 [Add-on Marketplace]: http://www.cloudkilat.com/
