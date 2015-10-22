@@ -17,7 +17,7 @@ web: ruby my_server.rb
 Misalnya `Procfiles` yang dapat digunakan untuk memulai aplikasi Rails dapat ditemukan
 [Nanti dalam dokumen ini] [rel-procfile].
 
-Untuk konteks yang lebih, kunjungi [Landasan dokumentasi] [procfile].
+Untuk informasi lebih lanjut, kunjungi [Platform Documentation] [procfile].
 
 
 ## Versi Ruby
@@ -27,6 +27,7 @@ yang standar akan digunakan. Saat ini, versi standar adalah 2.0.0.
 
 Untuk menentukan versi, menempatkan direktif `ruby` sebagai baris pertama di
 `Gemfile`, contoh:
+
 ~~~
 ruby "1.9.3"
 ~~~
@@ -37,7 +38,6 @@ Untuk melihat semua versi yang didukung, periksa dokumentasi [Ruby buildpack] [r
 
 
 # Catatan Rails
-
 
 ## Rails Procfile
 
@@ -52,7 +52,7 @@ web: exec bundle rails s -p $PORT
 
 Jika asset pipeline digunakan, file `config/application.rb` harus berisi baris berikut:
 
-~~~ Ruby
+~~~ruby
 config.assets.initialize_on_precompile = false if ENV['BUILDPACK_RUNNING']
 ~~~
 
@@ -65,7 +65,7 @@ Untuk menggunakan database dalam aplikasi Rails, file `config/database.yml` perl
 
 Berikut adalah contoh dari file `database.yml` yang akan menggunakan MySQL pada environment production.
 
-~~~ Erb
+~~~erb
 development:
   adapter: sqlite3
   database: db/development.sqlite3
@@ -96,15 +96,13 @@ Atau Anda dapat menggunakan gem [cloudcontrol-rails].
 
 Lingkungan ##
 
-Rails server dapat dijalankan dalam environment yang berbeda. Production adalah default, tetapi Anda dapat mengubahnya dengan menetapkan `RAILS_ENV` dan lingkungan `RAKE_ENV` variabel dengan [Custom Config addon] (https://community.CloudKilat.ch/tutorial/custom-config-add-on/ ). Sebagai contoh:
+Rails server dapat dijalankan dalam environment yang berbeda. Production adalah default, tetapi Anda dapat mengubahnya dengan mendefinisikan environment variable `RAILS_ENV` dan `RAKE_ENV` dengan custom config. Sebagai contoh:
 
-~~~
+~~~bash
 ironapp APP_NAME/DEP_NAME config.add RACK_ENV=some_env RAILS_ENV=some_env
 ~~~
 
 CATATAN: Gems dalam environment development dan test tidak dimasukkan ke proses instalasi bundle.
-
-
 
 [Cloudcontrol-rails]: https://rubygems.org/gems/cloudcontrol-rails
 [Procfile]: /Platform%20Documentation.md/#version-control-images

@@ -7,35 +7,34 @@ muncul di kontrol versi dan menimbulkan potensi masalah keamanan.
 
 Ada dua cara untuk mendapatkan [Kredensial Add-on] dalam aplikasi Ruby.
 
-
 ## Membaca Kredensial dari Environment
 
-Secara default, setiap Add-on mengekspos identitasnya di environment. Kamu bisa
-mencari nama-nama variabel di masing-masing dokumentasi Add-on
-. Untuk membacanya, cukup mengakses `hash ENV` Ruby. Beberapa contoh untuk Add-on Database dapat dilihat di bagian terakhir.
+Konfigurasi default untuk ruby adalah mengekspos kredensial Add-on di environment variable. Anda dapat
+mencari nama-nama variabel di masing-masing dokumentasi Add-on. Untuk membacanya,
+cukup mengakses hash `ENV` Ruby. Beberapa contoh untuk Add-on Database dapat dilihat di bagian terakhir.
 
 Jika Anda tidak ingin mengekspos kredensial tersebut di environtment, Anda bisa
 menonaktifkan mereka dengan menjalankan:
-~~~ Bash
+~~~bash
 $ ironapp APP_NAME/DEP_NAME config.add SET_ENV_VARS = false
 ~~~
 
 Kredensial Add-on juga bisa dibaca dari file kredensial, seperti yang dijelaskan di bagian selanjutnya.
 
 Perhatikan bahwa ada beberapa [environment variable] menarik lainnya
-tersedia dalam deployment Anda.
+yang tersedia dalam deployment Anda.
 
 
 ## Membaca Kredensial dari File Kredensial
 
-Semua [Kredensial Add-on] dapat ditemukan di sebuah tersedia JSON file juga, jalan mana yang terkena di
-yang environtment variable `CRED_FILE`. Anda dapat melihat format file dengan perintah:
-~~~ Bash
+Semua [Kredensial Add-on] dapat ditemukan di sebuah JSON file juga, path ke file tersebut
+bisa diketahui dengan membaca environment variable `CRED_FILE`. Anda dapat melihat format file dengan perintah:
+~~~bash
 $ ironapp addon.creds APP_NAME / DEP_NAME
 ~~~
 
 Anda dapat menggunakan kode berikut di mana pun Anda ingin mendapatkan kredensial dalam aplikasi Ruby Anda:
-~~~ Ruby
+~~~ruby
 require 'json'
 
 begin
@@ -60,10 +59,10 @@ Di bawah ini Anda dapat melihat bagaimana mengakses kredensial Add-on untuk MySQ
 
 ## MySQL
 
-Untuk menambahkan database MySQL, gunakan [Shared MySQL Add-on].
+Untuk menambahkan database MySQL, gunakan [MySQL Shared Add-on].
 
-Berikut adalah potongan Ruby yang membaca pengaturan database dan menyimpannya dalam hash `db_config`:
-~~~ Ruby
+Berikut adalah potongan kode Ruby yang membaca pengaturan database dan menyimpannya dalam hash `db_config`:
+~~~ruby
 db_config = {
   Database: ENV ["MYSQLS_DATABASE"],
   host: ENV ["MYSQLS_HOST"],
@@ -73,9 +72,9 @@ db_config = {
 }
 ~~~
 
-Anda selalu dapat merujuk pada perintah `addon.creds` untuk melihat nama-nama variabel yang sebenarnya dan nilai-nilai.
+Anda dapat merujuk pada perintah `addon.creds` untuk melihat nama-nama variabel yang sebenarnya dan nilai-nilainya.
 
 [Kredensial Add-on]: /Platform%20Documentation.md/#add-on-credentials
 [environment variable]: /Platform%20Documentation.md/#environment-variables
 [Add-on Marketplace]: http://www.cloudkilat.com/
-[Shared MySQL Add-on]: /Add-on%20Documentation/Data%20Storage/MySQLs.md
+[MySQL Shared Add-on]: /Add-on%20Documentation/Data%20Storage/MySQLs.md

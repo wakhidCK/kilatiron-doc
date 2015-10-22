@@ -1,11 +1,11 @@
 # Integrasi dengan Amazon S3
 
-[Amazon S3] (http://aws.amazon.com/s3/) adalah solusi Storage-as-a-Service. Ini menyediakan antarmuka layanan web sederhana yang dapat digunakan untuk menyimpan dan mengambil data dari mana saja di web.
+[Amazon S3] (http://aws.amazon.com/s3/) adalah solusi Storage-as-a-Service. Layanan ini menyediakan antarmuka web sederhana yang dapat digunakan untuk menyimpan dan mengambil data dari mana saja di web.
 
 
 ## Amazon S3 SDK
 
-Untuk Ruby Anda dapat memilih antara SDK yang berbeda untuk Amazon S3:
+Untuk Ruby Anda dapat memilih beberapa SDK yang berbeda untuk Amazon S3:
 * [Amazon S3 Ruby SDK]
 * [Fog]
 * [AWS-S3]
@@ -15,26 +15,26 @@ Untuk Ruby Anda dapat memilih antara SDK yang berbeda untuk Amazon S3:
 
 ## Persiapan
 
-Untuk menggunakan resmi Amazon S3 SDK dalam proyek Anda, tambahkan permata untuk Anda [Gemfile].
+Untuk menggunakan Amazon S3 SDK dalam proyek Anda, tambahkan gem pada [Gemfile].
 
-~~~ Ruby
+~~~ruby
 source 'https://rubygems.org'
 gem 'aws-sdk'
 ~~~
 
-Ikuti [Amazon Panduan] (http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/java-dg-setup.html) untuk membuat akun dan mendapatkan Anda [AWS akses kredensial] (http: // aws.amazon.com/security-credentials).
+Ikuti [panduan Amazon] (http://docs.aws.amazon.com/AWSSdkDocsJava/latest/DeveloperGuide/java-dg-setup.html) untuk membuat akun dan mendapatkan akses [kredensial AWS] (http://aws.amazon.com/security-credentials).
 
 ## Contoh penggunaan:
 
-Cara yang disarankan untuk memberikan kredensial AWS untuk aplikasi Anda adalah melalui variabel lingkungan. Untuk melakukan hal ini, gunakan [Config Add-on] (https://community.CloudKilat.ch/tutorial/custom-config-add-on/):
+Cara yang disarankan untuk memberikan kredensial AWS untuk aplikasi Anda adalah melalui environment variable. Untuk melakukan hal ini, gunakan [Config Add-on] (https://community.CloudKilat.ch/tutorial/custom-config-add-on/):
 
-~~~ Bash
+~~~bash
 $ ironapp APP_NAME/default config.add AWS_ACCESS_KEY_ID=[YOUR_SECRET_KEY] AWS_SECRET_ACCESS_KEY=[YOUR_ACCESS_KEY] AWS_REGION = 'eu-west1'
 ~~~
 
-Sekarang mari kita menunjukkan beberapa operasi pada bucket dan file:
+Sekarang mari kita mencoba beberapa operasi pada bucket dan file:
 
-~~~ Ruby
+~~~ruby
 require 'aws-sdk'
 require 'securerandom'
 

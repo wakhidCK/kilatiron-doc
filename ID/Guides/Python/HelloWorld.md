@@ -1,86 +1,106 @@
 # Menyebarkan aplikasi Flask
-[Flask] adalah microframework untuk Python berdasarkan Schieberegler, Jinja 2 dan baik
-niat.
+[Flask] adalah microframework untuk Python berdasarkan Werkzeug dan Jinja 2.
 
-Dalam tutorial ini kita akan menunjukkan cara untuk menyebarkan Flask
-aplikasi pada [CloudKilat]. Anda dapat menemukan [kode sumber di Github] [example_app] dan memeriksa [Python buildpack] untuk
-fitur yang didukung.
+Dalam tutorial ini kita akan mempelajari cara untuk men-deploy aplikasi Flask
+pada [KilatIron]. Anda dapat menemukan [kode sumber di Github] [Contoh-aplikasi] dan
+memeriksa [Python buildpack] untuk fitur-fitur yang didukung.
 
-## The Flask App Dijelaskan
+## Aplikasi Flask
 
-### Dapatkan App
+### Dapatkan Aplikasi
 Pertama, mari kita mengkloning Flask App dari repositori kami pada Github:
 
-~~~ Pesta
-$ Git clone https://github.com/cloudControl/python-flask-example-app.git
-$ Cd python-labu-contoh-aplikasi
+~~~bash
+$ git clone https://github.com/cloudControl/python-flask-example-app.git
+$ cd python-flask-example-app
 ~~~
 
-Sekarang Anda memiliki aplikasi Flask kecil tapi berfungsi penuh.
+Sekarang Anda sudah memiliki aplikasi Flask kecil tapi berfungsi penuh.
 
-### Ketergantungan Tracking
-Python buildpack melacak dependensi melalui pip dan file `requirements.txt`. Ini perlu ditempatkan di direktori root dari repositori Anda. Contoh aplikasi hanya menentukan Flask dirinya sebagai ketergantungan dan terlihat seperti ini:
+### Melacak Ketergantungan
+Python buildpack melacak ketergantungan melalui pip dan file `requirements.txt`.
+File tersebut perlu ditempatkan di direktori root dari repositori Anda.
+Contoh aplikasi hanya menentukan Flask sebagai dependensi dan terlihat seperti ini:
 
-~~~ Pip
-Flask == 0,9
+~~~pip
+Flask==0.10.1
 ~~~
 
 ### Proses Type Definition
-CloudKilat menggunakan [Procfile] tahu bagaimana untuk memulai proses Anda.
+KilatIron menggunakan [Procfile] untuk mengetahui bagaimana cara memulai proses Anda.
 
-Contoh kode sudah termasuk sebuah file yang bernama `Procfile` di tingkat atas repositori Anda. Ini terlihat seperti ini:
+Pada contoh kode terdapat sebuah file yang bernama `Procfile` di tingkat atas repositori Anda. File tersebut terlihat seperti ini:
 
 ~~~
 web: server.py python
 ~~~
 
-Kiri dari usus besar kita ditentukan ** diperlukan ** Jenis proses yang disebut `web` diikuti dengan perintah yang dimulai aplikasi dan mendengarkan pada port yang ditentukan oleh variabel lingkungan` $ PORT`.
+Kolom paling kiri **diperlukan** untuk mengetahui jenis proses, pada contoh ini dinamai `web` diikuti dengan perintah untuk memulai aplikasi.
 
-## Mendorong dan Menyebarkan App
-Pilih nama yang unik untuk menggantikan `APP_NAME` tempat untuk aplikasi Anda dan membuatnya pada platform CloudKilat:
+## Kode Aplikasi Flask
 
-~~~ Pesta
-$ Ironcliapp APP_NAME membuat python
+Contoh kode cukup sederhana. Dimulai dari import modul-modul yang dibutuhkan dan membuat instance
+dari class Flask. Lalu set route untuk fungsi hello() yang akan me-render template jinja.
+
+~~~python
+import os
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+
+@app.route('/')
+def hello():
+    return render_template('hello.jinja', domain=os.environ['DOMAIN'])
+
+app.debug = True
+app.run(host='0.0.0.0', port=int(os.environ['PORT']))
 ~~~
 
-Mendorong kode Anda ke repositori aplikasi, yang memicu penyebaran gambar proses build:
+## Push dan Deploy Aplikasi
 
-~~~ Pesta
-$ Ironcliapp APP_NAME / dorongan bawaan
-Menghitung benda: 16, dilakukan.
-Delta kompresi menggunakan sampai 4 benang.
-Mengompresi objek: 100% (10/10), dilakukan.
-Menulis objek: 100% (16/16), 258,30 KiB, dilakukan.
-Total 16 (delta 2), kembali 16 (delta 2)
-       
------> Mendorong Menerima
------> Ada runtime.txt tersedia; asumsi python-2.7.3.
------> Mempersiapkan runtime Python (python-2.7.3)
------> Instalasi Distribusikan (0.6.36)
------> Instalasi Pip (1.3.1)
------> Dependensi Instalasi menggunakan Pip (1.3.1)
-       Download / membongkar Flask == 0,9 (dari requirements.txt r (baris 1))
-       ...
-       Berhasil diinstal Flask Schieberegler Jinja2 markupsafe
-       Membersihkan ...
------> Gambar Building
------> Gambar Mengunggah (25M)
-       
-Untuk ssh: //APP_NAME@kilatiron.net/repository.git
- * [Cabang baru] Master -> Master
+Pilih nama yang unik untuk menggantikan `APP_NAME` untuk aplikasi Anda dan membuatnya pada platform KilatIron:
 
+~~~bash
+$ ironapp APP_NAME create python
 ~~~
 
-Terakhir namun tidak sedikit menyebarkan versi terbaru dari aplikasi dengan ironapp yang menyebarkan perintah:
+Push kode Anda ke repositori aplikasi, yang memicu proses pembuatan image container:
+~~~bash
+$ ironapp APP_NAME/default push
+Counting objects: 3, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 283 bytes | 0 bytes/s, done.
+Total 3 (delta 1), reused 0 (delta 0)
 
-~~~ Pesta
-$ Ironcliapp APP_NAME / default menyebarkan
+-----> Receiving push
+-----> No runtime.txt provided; assuming python-2.7.8.
+-----> Preparing Python runtime (python-2.7.8)
+-----> Installing Distribute (0.6.36)
+-----> Installing Pip (1.3.1)
+-----> Installing dependencies using Pip (1.3.1)
+       Downloading/unpacking Flask==0.10.1 (from -r requirements.txt (line 1))
+        ...
+       Successfully installed Flask Werkzeug Jinja2 itsdangerous MarkupSafe
+       Cleaning up...
+-----> Building image
+-----> Uploading image (25.1 MB)
+
+To ssh://APP_NAME@kilatiron.net/repository.git
+ * [new branch]      master -> master
 ~~~
 
-Selamat, Anda sekarang dapat melihat aplikasi Flask Anda berjalan pada `http [s]: // APP_NAME.kilatiron.net`.
+Yang terakhir harus dilakukan adalah menyebarkan versi terbaru dari aplikasi dengan perintah ironapp deploy:
+
+~~~bash
+$ ironapp APP_NAME/default deploy
+~~~
+
+Selamat, Anda sekarang dapat melihat aplikasi Flask Anda berjalan pada `http[s]://APP_NAME.kilatiron.net`.
 
 [Flask]: http://flask.pocoo.org/
-[CloudKilat]: http://www.cloudkilat.com/
+[KilatIron]: http://www.cloudkilat.com/
 [Python buildpack]: https://github.com/cloudControl/buildpack-python
 [Procfile]: /Platform%20Documentation.md/#buildpacks-and-the-procfile
-[Example_app]: https://github.com/cloudControl/python-flask-example-app.git
+[Contoh-aplikasi]: https://github.com/cloudControl/python-flask-example-app.git

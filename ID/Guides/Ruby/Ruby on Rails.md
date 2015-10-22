@@ -8,7 +8,7 @@ Dalam tutorial ini kita akan menunjukkan cara untuk membuat aplikasi [Ruby on Ra
 
 Pertama, mengkloning aplikasi Rails dari repositori kami pada Github:
 
-~~~ Pesta
+~~~bash
 $ git clone https://github.com/cloudControl/ruby-rails-example-app.git
 $ cd ruby-rails-example-app; git checkout mysql;
 ~~~
@@ -17,7 +17,7 @@ $ cd ruby-rails-example-app; git checkout mysql;
 
 Ruby buildpack melacak ketergantungan dengan [Bundler]. Mereka didefinisikan dalam `Gemfile` yang ditempatkan di direktori root dari repositori Anda. Dalam contoh ini app berisi:
 
-~~~ Ruby
+~~~ruby
 source 'http://rubygems.org'
 
 gem 'rails', '3.1.10'
@@ -58,7 +58,7 @@ gem 'jquery-rails'
 
 Aplikasi ini memiliki set lengkap tes. Periksa semua tes melewati lokal:
 
-~~~ Pesta
+~~~bash
 $ bundle install
 $ bundle exec rake db:migrate
 $ bundle exec rake db:test:prepare
@@ -83,7 +83,7 @@ Kolom paling kiri **diperlukan** untuk mengetahui jenis proses, pada contoh ini 
 
 Kami telah menambahkan kode ke kelas `Application` didefinisikan dalam `config/application.rb` berikut:
 
-~~~ Ruby
+~~~ruby
 module SampleApp
   class Application < Rails::Application
 
@@ -117,14 +117,14 @@ Gem 'cloudcontrol-rails' akan memberikan kredensial database.
 ## Deployment Aplikasi
 Pilih nama yang unik untuk menggantikan `APP_NAME` untuk aplikasi Anda dan membuatnya pada platform KilatIron:
 
-~~~ Pesta
+~~~bash
 $ ironapp APP_NAME create ruby
 ~~~
 
 Push kode Anda ke repositori aplikasi (gunakan deployment mysql, karena nama deployment itulah yang kita gunakan pada repository contoh aplikasi), yang memicu proses pembuatan image container:
 
-~~~ Pesta
-$ ironcliapp APP_NAME/mysql push
+~~~bash
+$ ironapp APP_NAME/mysql push
 Counting objects: 62, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (51/51), done.
@@ -169,14 +169,14 @@ To ssh://APP_NAME@kilatiron.net/repository.git
 
 Tambahkan MySQLs Add-on dengan `plan free` penyebaran dan menyebarkan:
 
-~~~ Pesta
+~~~bash
 $ ironapp APP_NAME/mysql addon.add mysqls.free
 $ ironapp APP_NAME/mysql deploy
 ~~~
 
 Siapkan database dengan menjalankan migrate menggunakan [perintah Run] [menjalankan perintah]:
 
-~~~ Pesta
+~~~bash
 $ ironapp APP_NAME/mysql run "rake db:migrate"
 ~~~
 

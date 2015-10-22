@@ -1,15 +1,16 @@
 # Menyebarkan Aplikasi Sinatra
 [Sinatra] [sinatra] adalah DSL untuk membuat aplikasi web di Ruby dengan cepat dan sedikit usaha.
 
-Dalam tutorial ini kita akan menunjukkan kepada Anda bagaimana untuk menggunakan aplikasi Sinatra di
-[KilatIron]. Anda dapat menemukan [kode sumber di Github] [contoh-aplikasi] dan memeriksa [Ruby buildpack] fitur-fitur yang didukung.
+Dalam tutorial ini kita akan menunjukkan kepada Anda bagaimana cara menggunakan aplikasi Sinatra di
+[KilatIron]. Anda dapat menemukan [kode sumber di Github] [contoh-aplikasi] dan memeriksa [Ruby buildpack]
+fitur-fitur yang didukung.
 
 
 ## Aplikasi Sinatra
 
 ### Dapatkan Aplikasi
 Pertama, mari kita mengkloning aplikasi Sinatra dari repositori kami pada Github:
-~~~ Pesta
+~~~bash
 $ git clone https://github.com/cloudControl/ruby-sinatra-example-app.git
 $ cd ruby-sinatra-example-app
 ~~~
@@ -17,36 +18,39 @@ $ cd ruby-sinatra-example-app
 Sekarang Anda memiliki aplikasi Sinatra kecil tapi berfungsi penuh.
 
 ### Melacak Ketergantungan
-Sinatra melacak ketergantungan melalui [Bundler]. Persyaratan dibaca dari `Gemfile` (dan` Gemfile.lock`) di direktori root proyek. Aplikasi sederhana kami hanya tergantung pada Sinatra:
-~~~ Ruby
+Sinatra melacak ketergantungan melalui [Bundler]. Persyaratan dibaca dari `Gemfile` (dan `Gemfile.lock`) di direktori root proyek.
+Aplikasi sederhana kami hanya tergantung pada Sinatra:
+
+~~~ruby
 source 'https://rubygems.org'
 gem 'sinatra'
 ~~~
 
 Perhatikan bahwa ada juga `Gemfile.lock`. Ketika Anda mengubah ketergantungan,
-Anda harus menjalankan `bundle install` perintah untuk memperbarui` Gemfile.lock`. File ini harus dalam repositori Anda dan memastikan bahwa semua pengembang selalu
-menggunakan versi yang sama dari semua gem.
+Anda harus menjalankan `bundle install` perintah untuk memperbarui` Gemfile.lock`. File ini harus dalam repositori Anda
+dan memastikan bahwa semua pengembang selalu menggunakan versi yang sama dari semua gem.
 
 ### Proses Type Definition
 
 KilatIron menggunakan [Procfile] untuk mengetahui bagaimana memulai proses Anda.
 
-Contoh kode sudah termasuk sebuah file yang bernama `Procfile` di tingkat atas repositori Anda. Ini terlihat seperti ini:
+Contoh kode sudah termasuk sebuah file yang bernama `Procfile` di tingkat atas repositori Anda. File tersebut terlihat seperti ini:
 ~~~
 web: bundle exec ruby server.rb -e production -p $PORT
 ~~~
 
-Kolom paling kiri **diperlukan** untuk mengetahui jenis proses, pada contoh ini dinamai `web` diikuti dengan perintah yang dimulai aplikasi dan mendengarkan pada port yang ditentukan oleh environment variable `$PORT`.
+Kolom paling kiri **diperlukan** untuk mengetahui jenis proses, pada contoh ini dinamai `web` diikuti dengan perintah untuk memulai
+aplikasi dan mendengarkan pada port yang ditentukan oleh environment variable `$PORT`.
 
-## Deployment aplikasi
+## Push dan Deploy Aplikasi
 Pilih nama yang unik untuk menggantikan `APP_NAME` untuk aplikasi Anda dan membuatnya pada platform KilatIron:
-~~~ Pesta
+~~~bash
 $ ironapp APP_NAME create ruby
 ~~~
 
 Push kode Anda ke repositori aplikasi, yang memicu proses pembuatan image container:
-~~~ Pesta
-$ ironapp APP_NAME / push default 
+~~~bash
+$ ironapp APP_NAME/default push
 Counting objects: 14, done.
 Delta compression using up to 4 threads.
 Compressing objects: 100% (10/10), done.
@@ -78,12 +82,11 @@ To ssh://APP_NAME@kilatiron.net/repository.git
 ~~~
 
 Yang terakhir harus dilakukan adalah menyebarkan versi terbaru dari aplikasi dengan perintah ironapp deploy:
-~~~ Pesta
+~~~bash
 $ ironapp APP_NAME/default deploy
 ~~~
 
 Selamat, Anda sekarang dapat melihat aplikasi Sinatra Anda berjalan di `http[s]://APP_NAME.kilatiron.net`.
-
 
 [Sinatra]: http://www.sinatrarb.com/
 [KilatIron]: http://www.cloudkilat.com/

@@ -2,21 +2,21 @@
 
 Jalankan perintah sangat berguna bagi programmer ruby. Berikut adalah beberapa contoh bagaimana hal itu dapat digunakan untuk tugas-tugas sehari-hari seperti migrasi atau menggunakan konsol rails.
 
-Untuk bermigrasi database:
+Untuk migrasi database:
 
-~~~ Pesta
+~~~bash
 $ ironapp APP_NAME/DEP_NAME run "rake db:migrate"
 ~~~
 
 Untuk menjalankan konsol rails:
-~~~ Pesta
+~~~bash
 $ ironapp APP_NAME/DEP_NAME run "rails c"
 ~~~
 
 Berikut ini adalah contoh lengkap di mana beberapa perintah dijalankan di sesi bash remote:
 
-~~~
-$ ironcliapp APP_NAME/DEP_NAME run bash
+~~~bash
+$ ironapp APP_NAME/DEP_NAME run bash
 Connecting...
 Warning: Permanently added '[X.X.X.X]:<PORT>' (RSA) to the list of known hosts.
 u<PORT>@<DEP_ID>-<PORT>:~/www$ rails g scaffold Post title:string content:text
@@ -83,8 +83,8 @@ Connection to sshforwarder.kilatiron.net closed.
 
 Hal yang sama dapat dicapai jika beberapa perintah individu dirantai:
 
-~~~
+~~~bash
 $ ironapp APP_NAME/DEPLOYMENT run "rails g scaffold Post title:string content:text && rake db:migrate && rails c"
 ~~~
 
-Baris di atas hanya sebagai contoh merantai perintah. Perubahan ke database dipertahankan, namun semua file yang dihasilkan akan hilang. Namun demikian hal ini menunjukkan penggunaan yang lebih kompleks dari perintah run.
+Baris di atas hanya sebagai contoh merantai perintah. Perubahan ke database dipertahankan, namun semua file yang dihasilkan akan hilang. Namun hal ini menunjukkan penggunaan yang lebih kompleks dari perintah run.
