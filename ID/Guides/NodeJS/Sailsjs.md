@@ -1,91 +1,91 @@
-# Menyebarkan Aplikasi Sails.js
+# Deploy Aplikasi Sails.js
 
-Dalam panduan ini kita akan menunjukkan cara untuk menyebarkan [Sails.js] aplikasi pada [CloudKilat]. Sails.js adalah real-time [Node.js] kerangka MVC, yang dirancang untuk meniru pola kerangka seperti [Ruby on Rails]. Hal ini memungkinkan Anda untuk dengan mudah membuat aplikasi dengan Node.js menggunakan pola MVC untuk mengatur kode Anda sehingga lebih mudah untuk mempertahankan.
+Dalam panduan ini kami akan menunjukkan bagaimana cara men-Deploy aplikasi [Sails.js] di [CloudKilat]. Sails.js adalah real-time [Node.js] MVC framework, yang dirancang untuk meniru pola dari framework seperti [Ruby on Rails]. Hal ini memudahkan anda untuk membuat aplikasi dengan Node.js menggunakan MVC framework untuk mengatur kode Anda sehingga lebih mudah untuk dipelihara.
 
-Jika Anda baru untuk Sails.js, pertama, memeriksa [Sails mendapatkan mulai halaman] untuk info lebih lanjut tentang cara menginstal Sails.
+Jika Anda seorang pemula pada Sails.js. Pertama, kunjungi [halaman permulaan Sails] untuk info lebih lanjut tentang cara menginstal Sails.
 
-## The Sails.js App Dijelaskan
+## Penjabaran Aplikasi Sails.js
 
-### Dapatkan App
+### Mendapatkan Aplikasi
 
 Pertama, mengkloning aplikasi Sails.js dari repositori kami:
 
-~~~ Pesta
-$ Git clone https://github.com/cloudControl/nodejs-sails-example-app.git
-$ Cd nodejs-layar-contoh-aplikasi
+~~~bash
+$ git clone https://github.com/cloudControl/nodejs-sails-example-app.git
+$ cd nodejs-sails-example-app
 ~~~
 
-Sekarang Anda memiliki aplikasi Sails.js kecil, tapi berfungsi penuh.
+Sekarang Anda memiliki aplikasi Sails.js sederhana, tapi berfungsi penuh.
 
-### Ketergantungan Tracking
+### Dependensi Tracking
 
-Dependensi dilacak menggunakan [NPM] dan ditentukan dalam `package.json`-file dalam direktori root proyek Anda.
+Dependensi dilacak menggunakan [NPM] dan ditentukan didalam file `package.json` di direktori root proyek Anda.
 Yang Anda kloning sebagai bagian dari contoh aplikasi terlihat seperti ini:
 
-~~~ Json
+~~~json
 {
-    "Nama": "layar-todomvc",
-    "Pribadi": true,
-    "Versi": "0.0.0",
-    "Description": "aplikasi Sails",
-    "Dependensi": {
-        "Layar": "0.9.7",
-        "Mendengus": "0.4.1",
-        "Layar-disk": "~ 0.9.0",
-        "Ejs": "0.8.4",
-        "Optimis": "0.3.4",
-        "Layar-mysql": "0.9.5"
+    "name": "sails-todomvc",
+    "private": true,
+    "version": "0.0.0",
+    "description": "a Sails application",
+    "dependencies": {
+        "sails": "0.9.7",
+        "grunt": "0.4.1",
+        "sails-disk": "~0.9.0",
+        "ejs": "0.8.4",
+        "optimist": "0.3.4",
+        "sails-mysql": "0.9.5"
     },
-    "Script": {
-        "Mulai": "simpul app.js",
-        "Debug": "simpul men-debug app.js"
+    "scripts": {
+        "start": "node app.js",
+        "debug": "node debug app.js"
     },
-    "Main": "app.js",
-    "Repositori": "",
-    "Penulis": "",
-    "Lisensi": ""
+    "main": "app.js",
+    "repository": "",
+    "author": "",
+    "license": ""
 }
 ~~~
 
 ### Proses Type Definition
-CloudKilat menggunakan [Procfile] untuk memulai proses aplikasi. The `Procfile` dapat ditemukan di tingkat akar repositori Anda.
+CloudKilat menggunakan [Procfile] untuk memulai proses aplikasi. `Procfile` dapat ditemukan di level root repositori Anda.
 
-Untuk memulai server layar, Anda perlu menggunakan `layar lift` perintah. Perintah ini termasuk dalam definisi procfile seperti berikut:
+Untuk menjalankan server sails, gunakan perintah `sails lift`. Perintah ini termasuk dalam definisi procfile, seperti yang ditunjukkan di bawah ini:
 
 ~~~
-web: ekspor NODE_ENV = produksi; angkat layar
+web:  export NODE_ENV=production; sails lift
 ~~~
 
-Kiri dari usus besar kita ditentukan ** diperlukan ** Jenis proses yang disebut `web` untuk aplikasi web dan diikuti dengan perintah yang dimulai server Sails.
+Keluar dari clon yang kita tentukan **diperlukan** Jenis proses yang disebut `web` untuk aplikasi web dan diikuti dengan perintah menjalankan server Sails.
 
 ### Menghubungkan Aplikasi Sails.js ke Database
-Sails.js adalah database yang agnostik. Ini menyediakan akses data lapisan sederhana yang bekerja, tidak peduli apa database yang Anda gunakan. Yang harus Anda lakukan adalah steker di salah satu adapter untuk database Anda. Di sini, kami tunjukkan cara untuk menghubungkan aplikasi Sails.js Anda ke database MySQL menggunakan CloudKilat [Bersama MySQL Add-on].
+Sails.js adalah database agnostik. Dia bekerja menyediakan akses data lapisan sederhana, tidak peduli apa database yang Anda gunakan. Yang harus Anda lakukan adalah memasangnya di salah satu adapter untuk database Anda. Di sini, kami tunjukkan cara untuk menghubungkan aplikasi Sails.js Anda ke database MySQL menggunakan [Shared MySQL Add-on] CloudKilat.
 
-Silahkan lihat di `config / file adapter.js` sehingga Anda dapat mengetahui bagaimana [mendapatkan mandat MySQL] disediakan oleh MySQLs Add-on:
+Silahkan lihat di file `config / file adapter.js` sehingga Anda dapat mengetahui bagaimana [mendapatkan MySQL credentials] yang disediakan oleh MySQLs Add-on:
 
-~~~ Javascript
+~~~javascript
 module.exports.adapters = {
 
-    'Default': process.env.NODE_ENV || 'pembangunan',
+    'default': process.env.NODE_ENV || 'development',
 
-    pembangunan: {
-        Modul: 'layar-mysql',
+    development: {
+        module: 'sails-mysql',
         host: 'localhost',
-        pengguna: 'todouser',
+        user: 'todouser',
         password: 'todopass',
-        Database: 'todomvc',
-        Kolam renang: benar,
+        database: 'todomvc',
+        pool: true,
         connectionLimit: 2,
         waitForConnections: true
     },
 
-    Produksi: {
-        Modul: 'layar-mysql',
-        tuan rumah: process.env.MYSQLS_HOSTNAME,
-        pengguna: process.env.MYSQLS_USERNAME,
+    production: {
+        module: 'sails-mysql',
+        host: process.env.MYSQLS_HOSTNAME,
+        user: process.env.MYSQLS_USERNAME,
         password: process.env.MYSQLS_PASSWORD,
-        Database: process.env.MYSQLS_DATABASE,
-        Kolam renang: benar,
+        database: process.env.MYSQLS_DATABASE,
+        pool: true,
         connectionLimit: 2,
         waitForConnections: true
     }
@@ -94,50 +94,50 @@ module.exports.adapters = {
 
 ### Socket.io dan Dukungan WebSocket
 
-Dalam Sails.js, komunikasi client-backend dilakukan dengan menggunakan [WebSockets]. Untuk lebih jelasnya, kita lihat di [CloudKilat WebSockets dokumentasi].
+Dalam Sails.js, komunikasi client-backend dilakukan dengan menggunakan [WebSockets]. Untuk lebih jelasnya, kita lihat di [dokumentasi CloudKilat WebSockets].
 
-## Mendorong dan Menyebarkan Anda Sails.js App
-Untuk menyebarkan aplikasi Sails.js Anda, pilih nama yang unik untuk menggantikan `APP_NAME` tempat untuk aplikasi Anda dan membuatnya pada platform CloudKilat:
+## Push dan Deploy Aplikasi Sails.js Anda
+Untuk men-Deploy aplikasi Sails.js Anda, pilih nama yang unik untuk menggantikan `APP_NAME` aplikasi Anda dan membuatnya di platform CloudKilat:
 
-~~~ Pesta
-$ Ironcliapp APP_NAME membuat nodejs
+~~~bash
+$ ironapp APP_NAME create nodejs
 ~~~
 
-Mendorong kode Anda ke repositori aplikasi, yang memicu penyebaran gambar proses build:
+Push kode Anda ke repositori aplikasi, yang memicu proses build deployment image:
 
-~~~ Pesta
-$ Ironcliapp APP_NAME / dorongan bawaan
-Menghitung benda: 73, dilakukan.
-Delta kompresi menggunakan hingga 8 benang.
-Mengompresi objek: 100% (35/35), dilakukan.
-Menulis objek: 100% (73/73), 267,28 KiB | 0 byte / s, dilakukan.
-Total 73 (delta 30), kembali 73 (delta 30)
+~~~bash
+$ ironapp APP_NAME/default push
+Counting objects: 73, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (35/35), done.
+Writing objects: 100% (73/73), 267.28 KiB | 0 bytes/s, done.
+Total 73 (delta 30), reused 73 (delta 30)
 
------> Mendorong Menerima
------> Menyelesaikan versi mesin
+-----> Receiving push
+-----> Resolving engine versions
 
-       Menggunakan versi Node.js: 0.10.15
-       Menggunakan versi NPM: 1.3.5
------> Mengambil Node.js binari
------> Dependensi Instalasi dengan NPM
+       Using Node.js version: 0.10.15
+       Using npm version: 1.3.5
+-----> Fetching Node.js binaries
+-----> Installing dependencies with npm
        ...
-       Dependensi diinstal
------> Bangunan lingkungan runtime
------> Gambar Building
------> Gambar Mengunggah (17M)
+       Dependencies installed
+-----> Building runtime environment
+-----> Building image
+-----> Uploading image (17M)
 
-Untuk ssh: //APP_NAME@kilatiron.net/repository.git
- * [Cabang baru] Master -> Master
+To ssh://APP_NAME@kilatiron.net/repository.git
+ * [new branch]      master -> master
 ~~~
 
-Tambahkan [Bersama MySQL Add-on]:
-~~~ Pesta
-$ Ironcliapp APP_NAME / default addon.add mysqls.free
+Tambahkan [Shared MySQL Add-on]:
+~~~bash
+$ ironapp APP_NAME/default addon.add mysqls.free
 ~~~
 
-Akhirnya, menyebarkan aplikasi Sails.js:
-~~~ Pesta
-$ Ironcliapp APP_NAME / default menyebarkan
+Terakhir, deploy aplikasi Sails.js:
+~~~bash
+$ ironapp APP_NAME/default deploy
 ~~~
 
 Selamat, Anda sekarang dapat melihat aplikasi Sails.js Anda berjalan pada
